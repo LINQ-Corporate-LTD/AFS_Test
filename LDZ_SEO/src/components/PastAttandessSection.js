@@ -214,7 +214,7 @@ const PastAttandessSection = () => {
               <p>Entegris</p>
             </div> */}
           </div>
-          <a onClick={() => navigate("/featured-Speakers")}>
+          <a onClick={() => navigate("/featured-speakers")}>
             Show more Speakers
             <svg
               className="NewsSection_iconArrow__DM6M5"
