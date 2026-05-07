@@ -91,7 +91,7 @@ export default function TestimonialCarousel() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setRow2((prev) => (prev === 0 ? 1 : 0));
-    }, 15000);
+    }, 13000);
 
     return () => clearTimeout(timeout);
   }, [row2]);
