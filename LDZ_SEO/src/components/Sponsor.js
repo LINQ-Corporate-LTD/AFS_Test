@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import "../../src/assets/css/sponsor.css";
- import "../../src/assets/css/form.css";
+import "../../src/assets/css/form.css";
 import Navbar from "./Navbar";
 import SubscribeForm from "./SubscribeForm";
 import Footer from "../Footer";
@@ -249,8 +249,8 @@ const Sponsors = () => {
 
   const [settings, setSettings] = useState({});
   const [chunkedSponsors, setChunkedSponsors] = useState([]);
+  const [isArrayDisplay, setIsArrayDisplay] = useState('none');
 
-  let arrowDisplay = "none";
   useEffect(() => {
     const updateSettings = () => {
       const width = window.innerWidth;
@@ -268,21 +268,16 @@ const Sponsors = () => {
         gridRows = 2;
       }
 
-      const autoplayOn = width <= 1230;
-
       const sponsorImg = sponsorList.map((sponsor) => sponsor);
-
       const totalSlides = Math.ceil(sponsorImg.length / itemsPerSlide);
       const totalNeeded = totalSlides * itemsPerSlide;
       const padded = padToFill(sponsorImg, totalNeeded);
       const chunked = chunkArray(padded, itemsPerSlide);
       const hasEnoughSlides = sponsorImg.length > itemsPerSlide;
+      const autoplayOn = hasEnoughSlides || width <= 1230;
 
-      arrowDisplay = hasEnoughSlides ? "block" : "none";
-
-      if (width <= 850) {
-        arrowDisplay = "none";
-      }
+      setIsArrayDisplay(sponsorList.length > 6 ? 'block' : 'none')
+      if (width <= 850) setIsArrayDisplay('none');
 
       setSettings({
         dots: false,
@@ -291,8 +286,10 @@ const Sponsors = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: autoplayOn,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 4000,
         infinite: autoplayOn && hasEnoughSlides,
+        cssEase: "linear",
+        centerPadding: "0px",
       });
 
       setChunkedSponsors(
@@ -509,7 +506,7 @@ const Sponsors = () => {
                       loading="lazy"
                       width="16"
                       onClick={() => sliderRef.current.slickPrev()}
-                      style={{ display: arrowDisplay }}
+                      style={{ display: isArrayDisplay }}
                     />
                     <div className="SponsorCards_cardContainerOuter__yj9ca operatorSlider">
                       <div>
@@ -697,7 +694,7 @@ const Sponsors = () => {
                       loading="lazy"
                       width="16"
                       onClick={() => sliderRef.current.slickNext()}
-                      style={{ display: arrowDisplay }}
+                      style={{ display: isArrayDisplay }}
                     />
                   </div>
                 </div>

@@ -59,7 +59,7 @@ const Home = () => {
 
   const [settings, setSettings] = useState({});
   const [chunkedSponsors, setChunkedSponsors] = useState([]);
-  let arrowDisplay = "none";
+  const [isArrayDisplay, setIsArrayDisplay] = useState('none');
 
   useEffect(() => {
     const updateSettings = () => {
@@ -78,7 +78,6 @@ const Home = () => {
         gridRows = 2;
       }
 
-      const autoplayOn = width <= 1230;
       const sponsors = ssrSponsorList || [];
       const sponsorImg = sponsors.map((sponsor) => sponsor);
       const totalSlides = Math.ceil(sponsorImg.length / itemsPerSlide);
@@ -86,9 +85,10 @@ const Home = () => {
       const padded = padToFill(sponsorImg, totalNeeded);
       const chunked = chunkArray(padded, itemsPerSlide);
       const hasEnoughSlides = sponsorImg.length > itemsPerSlide;
+      const autoplayOn = hasEnoughSlides || width <= 1230;
 
-      arrowDisplay = hasEnoughSlides ? "block" : "none";
-      if (width <= 850) arrowDisplay = "none";
+      setIsArrayDisplay(sponsors.length > 6 ? 'block' : 'none')
+      if (width <= 850) setIsArrayDisplay('none');
 
       setSettings({
         dots: false,
@@ -97,8 +97,10 @@ const Home = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: autoplayOn,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 4000,
         infinite: autoplayOn && hasEnoughSlides,
+        cssEase: "linear",
+        centerPadding: "0px",
       });
 
       setChunkedSponsors(
@@ -156,7 +158,7 @@ const Home = () => {
                 loading="lazy"
                 width="16"
                 onClick={() => sliderRef.current.slickPrev()}
-                style={{ display: arrowDisplay }}
+                style={{ display: isArrayDisplay }}
               />
               <div className="SponsorCards_cardContainerOuter__yj9ca operatorSlider">
                 <div>
@@ -209,11 +211,10 @@ const Home = () => {
                             return (
                               <a
                                 key={i}
-                                className={`SponsorCards_card__8eNkT ${
-                                  item?.sponsorType !== "Dummy"
-                                    ? "clickable"
-                                    : ""
-                                }`}
+                                className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                                  ? "clickable"
+                                  : ""
+                                  }`}
                                 style={{
                                   cursor:
                                     item?.sponsorType !== "Dummy"
@@ -246,11 +247,10 @@ const Home = () => {
                                     .replace(/-+/g, "-");
                                   return `/sponsor/${slug}`;
                                 })()}
-                                className={`SponsorCards_card__8eNkT ${
-                                  item?.sponsorType !== "Dummy"
-                                    ? "clickable"
-                                    : ""
-                                }`}
+                                className={`SponsorCards_card__8eNkT ${item?.sponsorType !== "Dummy"
+                                  ? "clickable"
+                                  : ""
+                                  }`}
                                 style={{
                                   cursor:
                                     item?.sponsorType !== "Dummy"
@@ -319,7 +319,7 @@ const Home = () => {
                 loading="lazy"
                 width="16"
                 onClick={() => sliderRef.current.slickNext()}
-                style={{ display: arrowDisplay }}
+                style={{ display: isArrayDisplay }}
               />
             </div>
           </div>
