@@ -184,6 +184,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_PUBLISHABLE_KEY ='pk_test_51S3c3THQBCGmReEPZ3J0tA2mP81BvQxY9PptsUir5PYeqjj9XW7GveKj04umPQYxbaYiXix4avRlloUdo3ITsBsz00zfBxr700'
 STRIPE_SECRET_KEY = 'sk_test_51S3c3THQBCGmReEP5KAgrZgnPTOH1neneuz9cmEQrWU6jk6PFzj7Kt1BccJnmMzVW2hkZJsFgAXqmmHfcWIGUyBV00UPZkNyv1'
 
+ZOHO_WEBHOOK_URL = 'https://flow.zoho.in/60060817867/flow/webhook/incoming?zapikey=1001.48c7ec6c66f3417f5e4e55f29dce369f.58f387aa65dfaa387287d049417d8d54&isdebug=false'
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

@@ -302,7 +302,6 @@ const CompanyRegistrationForm = () => {
           }
         });
         await Promise.all(submissions);
-        
       }
 
       async function sendBookingEmail() {
@@ -357,6 +356,75 @@ const CompanyRegistrationForm = () => {
         }
       }
 
+      // async function submitToZoho() {
+      //   const today = new Date();
+      //   const dateFormatted = today.toLocaleDateString("en-US", {
+      //     month: "short",
+      //     day: "2-digit",
+      //     year: "numeric",
+      //   });
+      //   const pacPrice = selectedPackage?.deligatePackagePrice;
+      //   const numDelegates = delegates?.length;
+      //   const preTaxAmount = pacPrice * numDelegates;
+      //   const taxPercent = parseFloat(
+      //     eventGeneralSettings?.purchaseTaxPercent || 0,
+      //   );
+      //   const taxAmount = (preTaxAmount * taxPercent) / 100;
+      //   const totalAmount = preTaxAmount + taxAmount;
+
+      //   const zohoPayload = {
+      //     webhookTrigger: {
+      //       payload: {
+      //         StateRegion: formData.company.state || "",
+      //         Discount: "0",
+      //         Address: formData.company.address || "-",
+      //         DelegateCompanyName: formData.company.companyName || "",
+      //         PreTaxAmount: { preTaxAmount },
+      //         PostalCode: formData.company.postalCode || "0",
+      //         CompanyWebAddress: formData.company.webAddress || "",
+      //         City: formData.company.city || "",
+      //         DiscountCode: "",
+      //         TotalAmount: { totalAmount },
+      //         Date: dateFormatted,
+      //         TaxAmount: { taxAmount },
+      //         Packages: selectedPackage?.deligatePackageName || "",
+      //         Currency: "USD",
+      //         Eventname: "Litihium Downstream Summit 2026",
+      //         Country: formData.company.country || "",
+      //         Delegates: formData.delegates.map((delegate) => ({
+      //           Email: delegate.email,
+      //           Position: delegate.position || "-",
+      //           FirstName: delegate.firstName,
+      //           PhoneNumber: delegate.mobile,
+      //           LastName: delegate.lastName,
+      //         })),
+      //         TotalAmountFormatted: { totalAmount },
+      //         InvoiceNumber: invoiceNumber,
+      //         FormName: "Booking Form",
+      //         FormURL: "https://www.linq-staging-site.com/booking-form",
+      //         AddOnsTotalAmount: "0",
+      //         // Eventcode: `${eventDetails?.eventShortCode}`,
+      //         Eventcode: "WSE",
+
+      //       },
+      //     },
+      //   };
+
+      //   try {
+      //     const zohoResponse = await fetch(
+      //       "https://www.linq-staging-site.com/admin1/sendtozoho",
+      //       {
+      //         method: "POST",
+      //         headers: { "Content-Type": "application/json" },
+      //         body: JSON.stringify(zohoPayload),
+      //       },
+      //     );
+      //     const zohoResult = await zohoResponse.json();
+      //     console.log("✅ Zoho submission successful:", zohoResult);
+      //   } catch (error) {
+      //     console.error("❌ Error submitting to Zoho:", error);
+      //   }
+      // }
       async function submitToZoho() {
         const today = new Date();
         const dateFormatted = today.toLocaleDateString("en-US", {
@@ -364,12 +432,15 @@ const CompanyRegistrationForm = () => {
           day: "2-digit",
           year: "numeric",
         });
-        const pacPrice = selectedPackage?.deligatePackagePrice;
-        const numDelegates = delegates?.length;
+
+        const pacPrice = selectedPackage?.deligatePackagePrice || 0;
+        const numDelegates = delegates?.length || 0;
         const preTaxAmount = pacPrice * numDelegates;
+
         const taxPercent = parseFloat(
           eventGeneralSettings?.purchaseTaxPercent || 0,
         );
+
         const taxAmount = (preTaxAmount * taxPercent) / 100;
         const totalAmount = preTaxAmount + taxAmount;
 
@@ -380,14 +451,14 @@ const CompanyRegistrationForm = () => {
               Discount: "0",
               Address: formData.company.address || "-",
               DelegateCompanyName: formData.company.companyName || "",
-              PreTaxAmount: { preTaxAmount },
+              PreTaxAmount: preTaxAmount,
               PostalCode: formData.company.postalCode || "0",
               CompanyWebAddress: formData.company.webAddress || "",
               City: formData.company.city || "",
               DiscountCode: "",
-              TotalAmount: { totalAmount },
+              TotalAmount: totalAmount,
               Date: dateFormatted,
-              TaxAmount: { taxAmount },
+              TaxAmount: taxAmount,
               Packages: selectedPackage?.deligatePackageName || "",
               Currency: "USD",
               Eventname: "Litihium Downstream Summit 2026",
@@ -399,7 +470,7 @@ const CompanyRegistrationForm = () => {
                 PhoneNumber: delegate.mobile,
                 LastName: delegate.lastName,
               })),
-              TotalAmountFormatted: { totalAmount },
+              TotalAmountFormatted: totalAmount,
               InvoiceNumber: invoiceNumber,
               FormName: "Booking Form",
               FormURL: "https://www.linq-staging-site.com/booking-form",
@@ -415,9 +486,14 @@ const CompanyRegistrationForm = () => {
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(zohoPayload),
+              body: JSON.stringify(zohoPayload.webhookTrigger.payload) // 👈 just this
             },
           );
+
+          if (!zohoResponse.ok) {
+            throw new Error("Zoho API failed");
+          }
+
           const zohoResult = await zohoResponse.json();
           console.log("✅ Zoho submission successful:", zohoResult);
         } catch (error) {
