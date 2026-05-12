@@ -63,20 +63,24 @@
     margin-bottom: 0px;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
+    align-items: center;
     background-color: var(--secondary-color);
     border: none;
     border-radius: 2px;
-    color: rgb(255, 255, 255);
+    color: #fff;
     cursor: pointer;
+    display: flex;
     font-size: 20px;
     font-weight: 800;
+    justify-content: center;
     min-height: 84px;
+    text-decoration: none;
     text-transform: uppercase;
-    transition: 0.3s;
+    transition: .3s;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button:hover {
+.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a:hover {
     background-color: rgb(214, 214, 214);
     color: var(--secondary-color);
 }
@@ -98,7 +102,7 @@
         padding: 70px 65px 70px 75px;
     }
 
-    .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+    .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
         min-height: 77px;
     }
 }
@@ -108,7 +112,7 @@
         padding: 50px;
     }
 
-    .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+    .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
         min-height: 65px;
     }
 }
@@ -130,7 +134,7 @@
         width: 90%;
     }
 
-    .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+    .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
         font-size: 16.5px;
         min-height: 50px;
     }

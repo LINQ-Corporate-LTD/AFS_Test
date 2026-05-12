@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Error404 from "./Error404";
 import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
- import "../../src/assets/css/form.css";
+import "../../src/assets/css/form.css";
 const SpeakerProfile = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -339,9 +339,9 @@ const SpeakerProfile = () => {
                       ></div>
                     </div>
                   </div>
-                  <button onClick={() => navigate("/agenda-page")}>
+                  <a className="DetailsContainer_cstom_btn__+cVfU" href="/agenda-page" target="_self">
                     view program
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

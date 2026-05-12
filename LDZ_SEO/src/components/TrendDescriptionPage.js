@@ -521,8 +521,7 @@ const TrendDescriptionPage = () => {
                       </div>
                     ))}
                   </div>
-                  <button onClick={() => navigate("/agenda-page")}>view more topics</button>
-                </div>
+                  <a href="/agenda-page">view more topics</a>                </div>
               </div>
             </div>
           ) : null}

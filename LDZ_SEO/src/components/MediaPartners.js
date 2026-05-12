@@ -141,7 +141,8 @@ const MediaPartners = () => {
               ></img>
             </div>
             <section className="MediaScreen_contactContainer__pk8AK">
-              <h2>Get in touch to Book Your Trade Show Booth</h2>
+              <h2>GET IN TOUCH TO BOOK YOUR BOOTH</h2>
+              {/* <h2>Get in touch to Book Your Trade Show Booth</h2> */}
               <div>
                 {mediaPageHelpersList.map((item, index) => (
                   <div className="MediaScreen_contactCard__9lw-u">

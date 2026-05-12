@@ -1294,8 +1294,8 @@ const CompanyRegistrationForm = () => {
                   <span onClick={() => window.open("/cookie-policy", "_blank")}>
                     Cookie Policy
                   </span>
-                  <span className="PageForm_divide__vwhn0">|</span>IQ
-                  International PTe. LTD
+                  <span className="PageForm_divide__vwhn0">|</span>
+                  <span onClick={() => window.open("https://iq-hub.com/", "_blank")}>IQ International PTe.LTD</span>
                 </p>
                 <p>©2026 Lithium Downstream Summit 2026</p>
               </div>
@@ -2069,8 +2069,8 @@ const CompanyRegistrationForm = () => {
                 <span onClick={() => window.open("/cookie-policy", "_blank")}>
                   Cookie Policy
                 </span>
-                <span className="PageForm_divide__vwhn0">|</span>IQ
-                International PTe. LTD
+                <span className="PageForm_divide__vwhn0">|</span>
+                <span onClick={() => window.open("https://iq-hub.com/", "_blank")}>IQ International PTe.LTD</span>
               </p>
               <p>©2026 Lithium Downstream Summit 2026</p>
             </div>

@@ -1555,22 +1555,31 @@ body .NewsSection_wholeContainer__t5qCK .NewsSection_latestNewsContainer__T48Li>
   padding: 0;
 }
 
-.TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div button {
-  background-color: #0000;
-  border: 1px solid #0e1328;
-  border-radius: 2px;
-  color: #0e1328;
+.TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div a {
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 800;
-  height: 50px;
+  display: flex;
   height: 60px;
-  text-transform: uppercase;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
   transition: all .3s ease;
   width: 399px;
 }
 
-.TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div button:hover {
+.TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div a {
+  background-color: #0000;
+  border: 1px solid #181818;
+  border-radius: 2px;
+  font-size: 20px;
+  font-weight: 800;
+  height: 50px;
+  text-transform: uppercase;
+}
+
+.TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div a:hover {
   background-color: #0e1328;
   color: #fff;
 }
@@ -1810,7 +1819,7 @@ body .NewsSection_wholeContainer__t5qCK .NewsSection_latestNewsContainer__T48Li>
     width: 90%;
   }
 
-  .TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div button {
+  .TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div a {
     font-size: 16.5px;
   }
 }
@@ -1873,7 +1882,7 @@ body .NewsSection_wholeContainer__t5qCK .NewsSection_latestNewsContainer__T48Li>
     margin-top: 0;
   }
 
-  .TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div button {
+  .TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div a {
     height: 50px;
   }
 }
@@ -1930,7 +1939,7 @@ body .NewsSection_wholeContainer__t5qCK .NewsSection_latestNewsContainer__T48Li>
     margin-top: 7px;
   }
 
-  .TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div button {
+  .TopicsOnAgenda_container__86lkR .TopicsOnAgenda_agendaContainer__TBsgc>div a {
     font-size: 16.5px !important;
     width: 90%;
   }

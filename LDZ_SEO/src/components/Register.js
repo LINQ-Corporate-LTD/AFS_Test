@@ -1047,40 +1047,25 @@ const Register = () => {
                         </button>
                       </div>
                     </div>
-                    <button
-                      disabled={card.deligatePackageStatus !== "available"}
-                      onClick={() => {
-                        if (card.deligatePackageStatus === "available") {
-                          // Navigate with selected card
-                          navigate("/booking-form", {
-                            state: {
-                              selectedCard: card,
-                              quantity: cardCounts[card.id || index] || 1,
-                            },
-                          });
-                        }
+                    <a
+                      href={card.deligatePackageStatus === "available" ? "/booking-form" : '/booking'}
+                      onClick={(e) => {
+                        if (card.deligatePackageStatus !== "available") return;
+                        e.preventDefault();
+                        navigate("/booking-form", {
+                          state: {
+                            selectedCard: card,
+                            quantity: cardCounts[card.id || index] || 1,
+                          },
+                        });
                       }}
-                      className="DiscountCard_btn__PcdQu"
-                      style={{
-                        backgroundColor:
-                          card.deligatePackageStatus === "available"
-                            ? "#000000"
-                            : "#7c7c7c",
-                        borderColor:
-                          card.deligatePackageStatus === "available"
-                            ? "#000000"
-                            : "#525252",
-                        cursor:
-                          card.deligatePackageStatus === "available"
-                            ? "pointer"
-                            : "not-allowed",
-                      }}
+                      className={`DiscountCard_btn__PcdQu ${card.deligatePackageStatus !== "available" ? "DiscountCard_disabledBtn__3A6ua" : ""}`}
                     >
                       <svg
                         fill={
                           card.deligatePackageStatus === "available"
-                            ? "#000000"
-                            : "#808080"
+                            ? "var(--secondary-color)"
+                            : "#7c7c7c"
                         }
                         height="25px"
                         width="25px"
@@ -1093,7 +1078,7 @@ const Register = () => {
                         : card.deligatePackageStatus === "soldOut"
                           ? "Sold Out"
                           : "Coming Soon"}
-                    </button>
+                    </a>
                   </div>
                 ))}
             </div>

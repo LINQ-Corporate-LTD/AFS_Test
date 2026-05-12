@@ -214,7 +214,7 @@ const PastAttandessSection = () => {
               <p>Entegris</p>
             </div> */}
           </div>
-          <a onClick={() => navigate("/featured-speakers")}>
+          <a href="/featured-speakers">
             Show more Speakers
             <svg
               className="NewsSection_iconArrow__DM6M5"
@@ -441,7 +441,7 @@ const PastAttandessSection = () => {
               <p>Deltares</p>
             </div> */}
           </div>
-          <a onClick={() => navigate("/attendees")}>
+          <a href="/attendees">
             Show more Attendees
             <svg
               className="NewsSection_iconArrow__DM6M5"

@@ -148,7 +148,8 @@ const ExhibitorPackages = () => {
 
   const exhibitorPackageSectionRef = useRef(null);
 
-  const scrollToExhibitPackage = () => {
+  const scrollToExhibitPackage = (e) => {
+    e.preventDefault();
     if (exhibitorPackageSectionRef.current) {
       const navbarHeight = 0;
       const elementPosition = exhibitorPackageSectionRef.current.offsetTop;
@@ -617,7 +618,9 @@ const ExhibitorPackages = () => {
                       ></p>
                     </div>
                   </div>
-                  <button onClick={scrollToExhibitPackage}>SPONSOR NOW</button>
+                  <a className="DetailsContainer_cstom_btn__+cVfU" href="/sponsor-packages" target="_self" onClick={scrollToExhibitPackage}>
+                    SPONSOR NOW
+                  </a>
                 </div>
               </div>
             </div>
@@ -931,43 +934,28 @@ const ExhibitorPackages = () => {
                       <tr>
                         <td></td>
                         <td>
-                          <button
-                            onClick={() =>
-                              navigate("/sponsor-booking", {
-                                state: {
-                                  selectedPackage: sponsorPackageList[0],
-                                },
-                              })
-                            }
+                          <a
+                            href="/sponsor-booking"
+                            onClick={(e) => { e.preventDefault(); navigate("/sponsor-booking", { state: { selectedPackage: sponsorPackageList[0] } }); }}
                           >
                             Book your booth
-                          </button>
+                          </a>
                         </td>
                         <td>
-                          <button
-                            onClick={() =>
-                              navigate("/sponsor-booking", {
-                                state: {
-                                  selectedPackage: sponsorPackageList[1],
-                                },
-                              })
-                            }
+                          <a
+                            href="/sponsor-booking"
+                            onClick={(e) => { e.preventDefault(); navigate("/sponsor-booking", { state: { selectedPackage: sponsorPackageList[1] } }); }}
                           >
                             Book your booth
-                          </button>
+                          </a>
                         </td>
                         <td>
-                          <button
-                            onClick={() =>
-                              navigate("/sponsor-booking", {
-                                state: {
-                                  selectedPackage: sponsorPackageList[2],
-                                },
-                              })
-                            }
+                          <a
+                            href="/sponsor-booking"
+                            onClick={(e) => { e.preventDefault(); navigate("/sponsor-booking", { state: { selectedPackage: sponsorPackageList[2] } }); }}
                           >
                             Book your booth
-                          </button>
+                          </a>
                         </td>
                       </tr>
                     </tbody>
@@ -1078,17 +1066,12 @@ const ExhibitorPackages = () => {
                           <span>–</span>
                         </div>
                         <div className="SponsorLanding_btn__QNo2m">
-                          <button
-                            onClick={() =>
-                              navigate("/sponsor-booking", {
-                                state: {
-                                  selectedPackage: sponsorPackageList[0],
-                                },
-                              })
-                            }
+                          <a
+                            href="/sponsor-booking"
+                            onClick={(e) => { e.preventDefault(); navigate("/sponsor-booking", { state: { selectedPackage: sponsorPackageList[0] } }); }}
                           >
                             book your booth
-                          </button>
+                          </a>
                         </div>
                       </div>
                     )}
@@ -1198,17 +1181,12 @@ const ExhibitorPackages = () => {
                           <span>–</span>
                         </div>
                         <div className="SponsorLanding_btn__QNo2m">
-                          <button
-                            onClick={() =>
-                              navigate("/sponsor-booking", {
-                                state: {
-                                  selectedPackage: sponsorPackageList[1],
-                                },
-                              })
-                            }
+                          <a
+                            href="/sponsor-booking"
+                            onClick={(e) => { e.preventDefault(); navigate("/sponsor-booking", { state: { selectedPackage: sponsorPackageList[1] } }); }}
                           >
                             book your booth
-                          </button>
+                          </a>
                         </div>
                       </div>
                     )}
@@ -1318,17 +1296,12 @@ const ExhibitorPackages = () => {
                           <img src={tickImg} alt=""></img>
                         </div>
                         <div className="SponsorLanding_btn__QNo2m">
-                          <button
-                            onClick={() =>
-                              navigate("/sponsor-booking", {
-                                state: {
-                                  selectedPackage: sponsorPackageList[2],
-                                },
-                              })
-                            }
+                          <a
+                            href="/sponsor-booking"
+                            onClick={(e) => { e.preventDefault(); navigate("/sponsor-booking", { state: { selectedPackage: sponsorPackageList[2] } }); }}
                           >
                             book your booth
-                          </button>
+                          </a>
                         </div>
                       </div>
                     )}

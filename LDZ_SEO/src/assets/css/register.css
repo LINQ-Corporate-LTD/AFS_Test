@@ -450,7 +450,7 @@ html {
   padding: 95px 0;
 }
 
-.RegisterNow_container__Hy2rO > div {
+.RegisterNow_container__Hy2rO>div {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -460,7 +460,7 @@ html {
   width: 100%;
 }
 
-.RegisterNow_container__Hy2rO > div h1 {
+.RegisterNow_container__Hy2rO>div h1 {
   color: #181818;
   color: #fff;
   font-size: 34px;
@@ -470,7 +470,7 @@ html {
   text-transform: uppercase;
 }
 
-.RegisterNow_container__Hy2rO > div > p {
+.RegisterNow_container__Hy2rO>div>p {
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -482,7 +482,7 @@ html {
   line-height: 20px;
 }
 
-.RegisterNow_container__Hy2rO > div > p span {
+.RegisterNow_container__Hy2rO>div>p span {
   color: var(--primary-color);
   display: block;
   font-weight: 700;
@@ -491,16 +491,13 @@ html {
   text-transform: uppercase;
 }
 
-.RegisterNow_container__Hy2rO > div .RegisterNow_registerCards__tVJkv {
+.RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.RegisterNow_container__Hy2rO
-  > div
-  .RegisterNow_registerCards__tVJkv
-  .RegisterNow_registerCard__Aryct {
+.RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv .RegisterNow_registerCard__Aryct {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -508,19 +505,11 @@ html {
   max-width: 200px;
 }
 
-.RegisterNow_container__Hy2rO
-  > div
-  .RegisterNow_registerCards__tVJkv
-  .RegisterNow_registerCard__Aryct
-  > div {
+.RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv .RegisterNow_registerCard__Aryct>div {
   height: 75px;
 }
 
-.RegisterNow_container__Hy2rO
-  > div
-  .RegisterNow_registerCards__tVJkv
-  .RegisterNow_registerCard__Aryct
-  p {
+.RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv .RegisterNow_registerCard__Aryct p {
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -535,7 +524,7 @@ html {
   padding: 100px 0;
 }
 
-.BookingLanding_discountCards__RBbvs > div {
+.BookingLanding_discountCards__RBbvs>div {
   grid-column-gap: 30px;
   column-gap: 30px;
   display: grid;
@@ -604,7 +593,7 @@ html {
   margin-top: -18px;
 }
 
-.DiscountCard_card__vmnqL > div {
+.DiscountCard_card__vmnqL>div {
   align-content: center;
   background-color: #f1f1f1;
   display: flex;
@@ -614,7 +603,7 @@ html {
   margin: 0;
 }
 
-.DiscountCard_card__vmnqL > div > p {
+.DiscountCard_card__vmnqL>div>p {
   color: #181818;
   color: #484848;
   font-size: 16px;
@@ -623,7 +612,7 @@ html {
   text-align: center;
 }
 
-.DiscountCard_card__vmnqL > div .DiscountCard_counter__BHW0i {
+.DiscountCard_card__vmnqL>div .DiscountCard_counter__BHW0i {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -631,7 +620,7 @@ html {
   padding: 0;
 }
 
-.DiscountCard_card__vmnqL > div .DiscountCard_counter__BHW0i button {
+.DiscountCard_card__vmnqL>div .DiscountCard_counter__BHW0i button {
   background-color: #b0b0b0;
   border: none;
   color: #fff;
@@ -641,15 +630,12 @@ html {
   padding: 0 15px;
 }
 
-.DiscountCard_card__vmnqL
-  > div
-  .DiscountCard_counter__BHW0i
-  button:first-child {
+.DiscountCard_card__vmnqL>div .DiscountCard_counter__BHW0i button:first-child {
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
 }
 
-.DiscountCard_card__vmnqL > div .DiscountCard_counter__BHW0i p {
+.DiscountCard_card__vmnqL>div .DiscountCard_counter__BHW0i p {
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.212);
   display: flex;
@@ -664,6 +650,7 @@ html {
 }
 
 .DiscountCard_card__vmnqL .DiscountCard_btn__PcdQu {
+  align-items: center;
   background-color: var(--secondary-color);
   border: none;
   border-bottom: 5px solid #0b122c;
@@ -671,12 +658,22 @@ html {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   color: #fff;
+  display: flex;
   font-size: 20px;
   font-weight: 800;
   height: 66px;
+  justify-content: center;
   position: relative;
+  text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+}
+
+.DiscountCard_card__vmnqL .DiscountCard_disabledBtn__3A6ua {
+  background: #7c7c7c;
+  border-color: #525252;
+  cursor: default;
+  pointer-events: none;
 }
 
 .DiscountCard_card__vmnqL .DiscountCard_btn__PcdQu svg {
@@ -700,7 +697,7 @@ html {
   padding: 100px 0;
 }
 
-.BookingLanding_operators__28yhC > div {
+.BookingLanding_operators__28yhC>div {
   align-items: center;
   background-color: #fff;
   display: flex;
@@ -711,17 +708,17 @@ html {
   width: 100%;
 }
 
-.BookingLanding_operators__28yhC > div img {
+.BookingLanding_operators__28yhC>div img {
   height: 140px;
   width: 296px;
 }
 
-.BookingLanding_operators__28yhC > div > div {
+.BookingLanding_operators__28yhC>div>div {
   margin-left: 85px;
   width: 350px;
 }
 
-.BookingLanding_operators__28yhC > div > div h2 {
+.BookingLanding_operators__28yhC>div>div h2 {
   color: #181818;
   font-size: 26px;
   font-weight: 800;
@@ -732,7 +729,7 @@ html {
   text-transform: none;
 }
 
-.BookingLanding_operators__28yhC > div > div button {
+.BookingLanding_operators__28yhC>div>div button {
   background-color: var(--secondary-color);
   border: none;
   border-radius: 2px;
@@ -746,7 +743,7 @@ html {
   width: 355px;
 }
 
-.BookingLanding_operators__28yhC > div > div button:hover {
+.BookingLanding_operators__28yhC>div>div button:hover {
   background-color: #e4e4e4 !important;
   border: 1px solid #0000;
   color: var(--secondary-color);
@@ -797,7 +794,7 @@ html {
   padding: 0;
 }
 
-.BookingLanding_modalContainer__5foGo > h2 {
+.BookingLanding_modalContainer__5foGo>h2 {
   color: #fff;
   font-size: 24px;
   font-weight: 800;
@@ -810,19 +807,19 @@ html {
   margin-top: 30px;
 }
 
-.BookingLanding_modalContainer__5foGo form > div {
+.BookingLanding_modalContainer__5foGo form>div {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.BookingLanding_modalContainer__5foGo form > div > div {
+.BookingLanding_modalContainer__5foGo form>div>div {
   align-items: center;
   flex-direction: column;
   width: 49%;
 }
 
-.BookingLanding_modalContainer__5foGo form > div > div input {
+.BookingLanding_modalContainer__5foGo form>div>div input {
   background-color: #fff;
   border: none;
   border-radius: 3px;
@@ -835,31 +832,31 @@ html {
   width: 100%;
 }
 
-.BookingLanding_modalContainer__5foGo form > div:nth-child(2) {
+.BookingLanding_modalContainer__5foGo form>div:nth-child(2) {
   margin-bottom: 22px;
   margin-top: 22px;
 }
 
-.BookingLanding_modalContainer__5foGo form > div:nth-child(3) {
+.BookingLanding_modalContainer__5foGo form>div:nth-child(3) {
   margin-bottom: 22px;
   margin-top: 22px;
 }
 
-.BookingLanding_modalContainer__5foGo form > div:nth-child(4) {
+.BookingLanding_modalContainer__5foGo form>div:nth-child(4) {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-.BookingLanding_modalContainer__5foGo form > div > div > div {
+.BookingLanding_modalContainer__5foGo form>div>div>div {
   margin-top: 8px;
 }
 
-.BookingLanding_modalContainer__5foGo form > div > div > div {
+.BookingLanding_modalContainer__5foGo form>div>div>div {
   color: red;
 }
 
-.BookingLanding_modalContainer__5foGo form > div > div select {
+.BookingLanding_modalContainer__5foGo form>div>div select {
   background-color: #fff;
   border: none;
   border-radius: 3px;
@@ -873,7 +870,7 @@ html {
   width: 100%;
 }
 
-.BookingLanding_modalContainer__5foGo form > div > div select option {
+.BookingLanding_modalContainer__5foGo form>div>div select option {
   color: #777;
   cursor: pointer;
   font-size: 15px;
@@ -914,10 +911,7 @@ html {
   width: 100%;
 }
 
-.BookingLanding_modalContainer__5foGo
-  form
-  .BookingLanding_formCheck__vu-QU
-  > div {
+.BookingLanding_modalContainer__5foGo form .BookingLanding_formCheck__vu-QU>div {
   align-items: flex-start;
   color: red;
   display: flex;
@@ -927,11 +921,7 @@ html {
   width: 100%;
 }
 
-.BookingLanding_modalContainer__5foGo
-  form
-  .BookingLanding_formCheck__vu-QU
-  > div
-  label {
+.BookingLanding_modalContainer__5foGo form .BookingLanding_formCheck__vu-QU>div label {
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -939,29 +929,20 @@ html {
   padding: 0;
 }
 
-.BookingLanding_modalContainer__5foGo
-  form
-  .BookingLanding_formCheck__vu-QU
-  > div
-  input {
+.BookingLanding_modalContainer__5foGo form .BookingLanding_formCheck__vu-QU>div input {
   cursor: pointer;
   height: 15px;
   margin: 2px 0 0;
   width: 15px;
 }
 
-.BookingLanding_modalContainer__5foGo
-  form
-  .BookingLanding_btnContainer__C\+nke {
+.BookingLanding_modalContainer__5foGo form .BookingLanding_btnContainer__C\+nke {
   align-items: center;
   display: flex;
   justify-content: center;
 }
 
-.BookingLanding_modalContainer__5foGo
-  form
-  .BookingLanding_btnContainer__C\+nke
-  .BookingLanding_button__YtJxy {
+.BookingLanding_modalContainer__5foGo form .BookingLanding_btnContainer__C\+nke .BookingLanding_button__YtJxy {
   align-items: center;
   background-color: var(--primary-color);
   border: 1px solid #0000;
@@ -980,10 +961,7 @@ html {
   width: 200px;
 }
 
-.BookingLanding_modalContainer__5foGo
-  form
-  .BookingLanding_btnContainer__C\+nke
-  .BookingLanding_button__YtJxy:hover {
+.BookingLanding_modalContainer__5foGo form .BookingLanding_btnContainer__C\+nke .BookingLanding_button__YtJxy:hover {
   background-color: #0000;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
@@ -1020,7 +998,7 @@ html {
     padding: 60px 0;
   }
 
-  .RegisterNow_container__Hy2rO > div h1 {
+  .RegisterNow_container__Hy2rO>div h1 {
     font-size: 30px;
   }
 
@@ -1033,17 +1011,17 @@ html {
     padding: 60px 0;
   }
 
-  .BookingLanding_operators__28yhC > div > div h2 {
+  .BookingLanding_operators__28yhC>div>div h2 {
     font-size: 30px;
   }
 }
 
 @media only screen and (max-width: 1231px) {
-  .RegisterNow_container__Hy2rO > div {
+  .RegisterNow_container__Hy2rO>div {
     max-width: 960px;
   }
 
-  .BookingLanding_discountCards__RBbvs > div {
+  .BookingLanding_discountCards__RBbvs>div {
     max-width: 960px;
   }
 
@@ -1059,21 +1037,21 @@ html {
     font-size: 18px;
   }
 
-  .BookingLanding_operators__28yhC > div {
+  .BookingLanding_operators__28yhC>div {
     max-width: 960px;
   }
 }
 
 @media only screen and (max-width: 991px) {
-  .RegisterNow_container__Hy2rO > div {
+  .RegisterNow_container__Hy2rO>div {
     max-width: 720px;
   }
 
-  .RegisterNow_container__Hy2rO > div h1 {
+  .RegisterNow_container__Hy2rO>div h1 {
     font-size: 28px;
   }
 
-  .RegisterNow_container__Hy2rO > div .RegisterNow_registerCards__tVJkv {
+  .RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv {
     grid-column-gap: 60px;
     grid-row-gap: 40px;
     column-gap: 60px;
@@ -1083,41 +1061,38 @@ html {
     row-gap: 40px;
   }
 
-  .RegisterNow_container__Hy2rO
-    > div
-    .RegisterNow_registerCards__tVJkv
-    .RegisterNow_registerCard__Aryct {
+  .RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv .RegisterNow_registerCard__Aryct {
     max-width: none;
   }
 
-  .BookingLanding_discountCards__RBbvs > div {
+  .BookingLanding_discountCards__RBbvs>div {
     column-gap: 20px;
     grid-template-columns: repeat(2, 1fr);
     max-width: 720px;
     row-gap: 20px;
   }
 
-  .BookingLanding_operators__28yhC > div {
+  .BookingLanding_operators__28yhC>div {
     max-width: 720px;
   }
 
-  .BookingLanding_operators__28yhC > div > div {
+  .BookingLanding_operators__28yhC>div>div {
     margin-left: 25px;
   }
 
-  .BookingLanding_operators__28yhC > div > div h2 {
+  .BookingLanding_operators__28yhC>div>div h2 {
     font-size: 24px;
     line-height: 22px;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .RegisterNow_container__Hy2rO > div {
+  .RegisterNow_container__Hy2rO>div {
     max-width: 650px;
     width: 90%;
   }
 
-  .BookingLanding_discountCards__RBbvs > div {
+  .BookingLanding_discountCards__RBbvs>div {
     column-gap: 0;
     grid-template-columns: 1fr;
     max-width: 650px;
@@ -1125,29 +1100,29 @@ html {
     width: 90%;
   }
 
-  .BookingLanding_operators__28yhC > div {
+  .BookingLanding_operators__28yhC>div {
     flex-wrap: wrap;
     max-width: 650px;
     padding: 40px 0;
     width: 90%;
   }
 
-  .BookingLanding_operators__28yhC > div img {
+  .BookingLanding_operators__28yhC>div img {
     height: 125px;
     width: 265px;
   }
 
-  .BookingLanding_operators__28yhC > div > div {
+  .BookingLanding_operators__28yhC>div>div {
     margin-left: 0;
     width: 90%;
   }
 
-  .BookingLanding_operators__28yhC > div > div h2 {
+  .BookingLanding_operators__28yhC>div>div h2 {
     margin: 40px 0;
     text-align: center;
   }
 
-  .BookingLanding_operators__28yhC > div > div button {
+  .BookingLanding_operators__28yhC>div>div button {
     font-size: 16.5px;
     margin-top: 0;
     max-height: auto;
@@ -1167,31 +1142,31 @@ html {
     max-height: 70vh;
   }
 
-  .BookingLanding_modalContainer__5foGo > h2 {
+  .BookingLanding_modalContainer__5foGo>h2 {
     font-size: 20px;
   }
 
-  .BookingLanding_modalContainer__5foGo form > div {
+  .BookingLanding_modalContainer__5foGo form>div {
     flex-direction: column;
   }
 
-  .BookingLanding_modalContainer__5foGo form > div > div {
+  .BookingLanding_modalContainer__5foGo form>div>div {
     margin-bottom: 20px;
   }
 
-  .BookingLanding_modalContainer__5foGo form > div > div {
+  .BookingLanding_modalContainer__5foGo form>div>div {
     width: 100%;
   }
 
-  .BookingLanding_modalContainer__5foGo form > div > div input {
+  .BookingLanding_modalContainer__5foGo form>div>div input {
     width: 100%;
   }
 
-  .BookingLanding_modalContainer__5foGo form > div:nth-child(2) {
+  .BookingLanding_modalContainer__5foGo form>div:nth-child(2) {
     margin: 0;
   }
 
-  .BookingLanding_modalContainer__5foGo form > div:nth-child(3) {
+  .BookingLanding_modalContainer__5foGo form>div:nth-child(3) {
     margin: 0;
   }
 
@@ -1200,17 +1175,11 @@ html {
     margin-top: 10px;
   }
 
-  .BookingLanding_modalContainer__5foGo
-    form
-    .BookingLanding_btnContainer__C\+nke
-    .BookingLanding_button__YtJxy {
+  .BookingLanding_modalContainer__5foGo form .BookingLanding_btnContainer__C\+nke .BookingLanding_button__YtJxy {
     margin-bottom: 40px;
   }
 
-  .BookingLanding_modalContainer__5foGo
-    form
-    .BookingLanding_btnContainer__C\+nke
-    .BookingLanding_button__YtJxy {
+  .BookingLanding_modalContainer__5foGo form .BookingLanding_btnContainer__C\+nke .BookingLanding_button__YtJxy {
     width: 100%;
   }
 }
@@ -1220,18 +1189,18 @@ html {
     padding: 37px 0;
   }
 
-  .RegisterNow_container__Hy2rO > div h1 {
+  .RegisterNow_container__Hy2rO>div h1 {
     font-size: 22px;
     line-height: 25px;
   }
 
-  .RegisterNow_container__Hy2rO > div > p {
+  .RegisterNow_container__Hy2rO>div>p {
     margin-bottom: 30px;
     margin-top: 10px;
     width: 100%;
   }
 
-  .RegisterNow_container__Hy2rO > div .RegisterNow_registerCards__tVJkv {
+  .RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv {
     grid-template-columns: repeat(2, 190px);
   }
 
@@ -1253,7 +1222,7 @@ html {
     padding: 68px 0;
   }
 
-  .DiscountCard_card__vmnqL > div {
+  .DiscountCard_card__vmnqL>div {
     padding: 87px 0;
   }
 
@@ -1266,7 +1235,7 @@ html {
     padding: 40px 0;
   }
 
-  .BookingLanding_operators__28yhC > div > div h2 {
+  .BookingLanding_operators__28yhC>div>div h2 {
     font-size: 22px;
     line-height: 25px;
   }
@@ -1281,30 +1250,23 @@ html {
     right: 0;
   }
 
-  .BookingLanding_modalContainer__5foGo > h2 {
+  .BookingLanding_modalContainer__5foGo>h2 {
     font-size: 18px;
   }
 
-  .BookingLanding_modalContainer__5foGo
-    form
-    .BookingLanding_btnContainer__C\+nke
-    .BookingLanding_button__YtJxy {
+  .BookingLanding_modalContainer__5foGo form .BookingLanding_btnContainer__C\+nke .BookingLanding_button__YtJxy {
     margin-bottom: 30px;
   }
 }
 
 @media only screen and (max-width: 580px) {
-  .RegisterNow_container__Hy2rO
-    > div
-    .RegisterNow_registerCards__tVJkv
-    .RegisterNow_registerCard__Aryct
-    p {
+  .RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv .RegisterNow_registerCard__Aryct p {
     padding: 0;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .BookingLanding_modalContainer__5foGo form > div > div input {
+  .BookingLanding_modalContainer__5foGo form>div>div input {
     font-size: 13px;
     font-weight: 600;
   }
@@ -1319,66 +1281,55 @@ html {
     font-size: 14px;
   }
 
-  .BookingLanding_modalContainer__5foGo
-    form
-    .BookingLanding_formCheck__vu-QU
-    > div
-    label {
+  .BookingLanding_modalContainer__5foGo form .BookingLanding_formCheck__vu-QU>div label {
     font-size: 14px;
     margin-left: 15px;
   }
 
-  .BookingLanding_modalContainer__5foGo
-    form
-    .BookingLanding_formCheck__vu-QU
-    > div
-    input {
+  .BookingLanding_modalContainer__5foGo form .BookingLanding_formCheck__vu-QU>div input {
     height: 13px;
     width: 13px;
   }
 
-  .BookingLanding_modalContainer__5foGo
-    form
-    .BookingLanding_btnContainer__C\+nke
-    .BookingLanding_button__YtJxy {
+  .BookingLanding_modalContainer__5foGo form .BookingLanding_btnContainer__C\+nke .BookingLanding_button__YtJxy {
     font-size: 16px;
     font-weight: 700;
   }
 }
 
 @media only screen and (max-width: 470px) {
-  .RegisterNow_container__Hy2rO > div .RegisterNow_registerCards__tVJkv {
+  .RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv {
     column-gap: 20px;
     row-gap: 20px;
   }
 }
 
 @media only screen and (max-width: 430px) {
-  .BookingLanding_operators__28yhC > div > div h2 {
+  .BookingLanding_operators__28yhC>div>div h2 {
     font-size: 18px;
     margin: 20px 0;
   }
 }
 
 @media only screen and (max-width: 420px) {
-  .RegisterNow_container__Hy2rO > div .RegisterNow_registerCards__tVJkv {
+  .RegisterNow_container__Hy2rO>div .RegisterNow_registerCards__tVJkv {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .BookingLanding_operators__28yhC > div img {
+  .BookingLanding_operators__28yhC>div img {
     height: auto;
     max-width: 265px;
     width: 90%;
   }
 }
 
-.BookingLanding_operators__28yhC > div img {
+.BookingLanding_operators__28yhC>div img {
   height: auto;
   max-width: 265px;
   width: 90%;
 }
 
-.BookingLanding_modalContainer__5foGo form > div > div > div {
+.BookingLanding_modalContainer__5foGo form>div>div>div {
   color: red;
   margin-top: 8px;
 }

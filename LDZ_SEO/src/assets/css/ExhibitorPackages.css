@@ -403,20 +403,24 @@
   margin-bottom: 0;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
+  align-items: center;
   background-color: var(--secondary-color);
   border: none;
   border-radius: 2px;
   color: #fff;
   cursor: pointer;
+  display: flex;
   font-size: 20px;
   font-weight: 800;
+  justify-content: center;
   min-height: 84px;
+  text-decoration: none;
   text-transform: uppercase;
   transition: .3s;
 }
 
-.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button:hover {
+.DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a:hover {
   background-color: #d6d6d6 !important;
   color: var(--secondary-color);
 }
@@ -602,6 +606,10 @@
   width: calc(100% - 80px);
 }
 
+.SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageTableContainer__C2Yxs table tbody tr:last-child td:nth-child(n+2):after {
+  display: none;
+}
+
 .SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageTableContainer__C2Yxs table tbody tr td:first-child i {
   background-color: #0000;
   color: #fff;
@@ -616,18 +624,20 @@
   font-weight: 800;
 }
 
-.SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageTableContainer__C2Yxs table tbody tr:last-child td button {
+.SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageTableContainer__C2Yxs table tbody tr:last-child td a {
   background-color: var(--primary-color);
   border: none;
   border-radius: 2px;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
+  display: block;
   font-size: 16px;
   font-weight: 800;
   margin: 10px auto;
   max-width: 229px;
   padding: 15px;
   text-align: center;
+  text-decoration: none;
   text-transform: uppercase;
   width: 100%;
 }
@@ -790,7 +800,7 @@
   padding: 30px 0;
 }
 
-.SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageCardContainer__m\+YQm .SponsorLanding_body__rHcET .SponsorLanding_btn__QNo2m button {
+.SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageCardContainer__m\+YQm .SponsorLanding_body__rHcET .SponsorLanding_btn__QNo2m a {
   background-color: var(--primary-color);
   border: none;
   border-radius: 2px;
@@ -1046,7 +1056,7 @@
     padding: 70px 65px 70px 75px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
     min-height: 77px;
   }
 }
@@ -1087,9 +1097,10 @@
     padding: 50px;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
     min-height: 65px;
   }
+
 
   .SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageTableContainer__C2Yxs table tbody tr td:nth-child(n+2):after {
     margin: 0 20px;
@@ -1140,7 +1151,7 @@
     display: block;
   }
 
-  .SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageCardContainer__m\+YQm .SponsorLanding_body__rHcET .SponsorLanding_btn__QNo2m button {
+  .SponsorLanding_container__bsWcn .SponsorLanding_packagesCotainer__QBljc>div .SponsorLanding_packageCardContainer__m\+YQm .SponsorLanding_body__rHcET .SponsorLanding_btn__QNo2m a {
     width: 100%;
   }
 
@@ -1190,7 +1201,7 @@
     width: 90%;
   }
 
-  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb button {
+  .DetailsContainer_wholeContainer__385Iv .DetailsContainer_container__JrWjX .DetailsContainer_textContainer__D8Ukb a {
     font-size: 16.5px;
     min-height: 50px;
   }

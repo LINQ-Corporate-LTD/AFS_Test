@@ -407,7 +407,7 @@ const Attandees = () => {
                         </div>
                       ))}
                     </div>
-                    <button onClick={() => navigate("/agenda-page")}>view more topics</button>
+                    <a href="/agenda-page">view more topics</a>
                   </div>
                 </div>
               </div>

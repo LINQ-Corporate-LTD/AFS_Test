@@ -63,7 +63,9 @@ const KeyTopics = () => {
         ))}
       </div>
       <div className="TopicSection_btn__0YjT+">
-        <button onClick={() => navigate("/agenda-page")}>VIEW PROGRAM</button>
+        <a href="/agenda-page">
+          VIEW PROGRAM
+        </a>
       </div>
     </article>
   );

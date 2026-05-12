@@ -271,7 +271,9 @@ const Footer = () => {
             <span> | </span>
             <a href="/cookie-policy">Cookie Policy</a>
             <span> | </span>
-            IQ International PTe. LTD
+            <a target="_blank" href="https://iq-hub.com/">
+              IQ International PTe. LTD
+            </a>
           </p>
           <p>©2026 Lithium Downstream Summit 2026</p>
         </div>

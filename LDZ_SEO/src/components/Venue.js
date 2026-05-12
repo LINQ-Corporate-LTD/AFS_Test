@@ -134,7 +134,8 @@ const Venue = () => {
     return cleaned;
   };
 
-  const scrollToContact = () => {
+  const scrollToContact = (e) => {
+    e.preventDefault();
     if (contactSectionRef.current) {
       const navbarHeight = 0;
       const elementPosition = contactSectionRef.current.offsetTop;
@@ -186,7 +187,7 @@ const Venue = () => {
                       }}
                     />
                   </div>
-                  <button onClick={scrollToContact}>MORE INFORMATION</button>
+                  <a className="DetailsContainer_cstom_btn__+cVfU" href="/venue" target="_self" onClick={scrollToContact}>MORE INFORMATION</a>
                 </div>
               </div>
             </div>

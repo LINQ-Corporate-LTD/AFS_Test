@@ -126,16 +126,16 @@ const News = () => {
   // };
 
   const formatDate = (dateString) => {
-  const date = new Date(dateString);
+    const date = new Date(dateString);
 
-  const day = date.toLocaleDateString("en-GB", { day: "2-digit" });
-  const month = date
-    .toLocaleDateString("en-GB", { month: "short" })
-    .toUpperCase();
-  const year = date.toLocaleDateString("en-GB", { year: "numeric" });
+    const day = date.toLocaleDateString("en-GB", { day: "2-digit" });
+    const month = date
+      .toLocaleDateString("en-GB", { month: "short" })
+      .toUpperCase();
+    const year = date.toLocaleDateString("en-GB", { year: "numeric" });
 
-  return `${day} ${month} ${year}`;
-};
+    return `${day} ${month} ${year}`;
+  };
 
   const allTopics = [
     {
@@ -486,7 +486,7 @@ const News = () => {
                       </div>
                     ))}
                   </div>
-                  <button onClick={() => navigate("/agenda-page")}>view more topics</button>
+                  <a href="/agenda-page">view more topics</a>
                 </div>
               </div>
             </div>

@@ -459,9 +459,9 @@ const Sponsors = () => {
                         ></p>
                       </div>
                     </div>
-                    <button onClick={() => navigate("/sponsor-packages")}>
+                    <a className="DetailsContainer_cstom_btn__+cVfU" href="/sponsor-packages" target="_self">
                       exhibit now
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -866,9 +866,9 @@ const Sponsors = () => {
                     </p>
                   </div>
                 </div>
-                <button onClick={() => navigate("/sponsor-packages")}>
+                <a href="/sponsor-packages">
                   view packages
-                </button>
+                </a>
               </div>
               <div className="Form_container__jwPCR">
                 <div>
@@ -976,8 +976,8 @@ const Sponsors = () => {
               <TestimonialCarousel />
               <LogoCarousel />
               <div className="SponsorsScreen_contactContainer__c6iss">
-                {/* <h2>Get in touch to Book Your Trade Show Booth</h2> */}
-                <h2>be visible in the room with the decision makers</h2>
+                <h2>Get in touch to Book Your Trade Show Booth</h2>
+                {/* <h2>be visible in the room with the decision makers</h2> */}
                 <div>
                   {mediaPageHelpersList.map((item, index) => (
                     <div className="SponsorsScreen_contactCard__q2HNX">

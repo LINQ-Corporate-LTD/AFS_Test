@@ -277,7 +277,7 @@ const AddSponsorDelegateForm = () => {
           }
         });
         await Promise.all(submissions);
-        
+
       }
 
       async function sendBookingEmail() {
@@ -337,7 +337,7 @@ const AddSponsorDelegateForm = () => {
           submitCompanyDelegatesToHubSpot(formData),
           sendBookingEmail(),
         ]);
-       
+
 
         // â”€â”€ Instead of navigating, store the data and show Step 2 inline â”€â”€
         setStep2Data({
@@ -421,7 +421,7 @@ const AddSponsorDelegateForm = () => {
 
     async function sendStep2Email() {
       const prices = calculatePrices();
-    
+
       let step2Html = `
       <h3>Sponsor Booking Form Step 2</h3>
       <div style='width: 60%; background-color: transparent; color: black;'>
@@ -472,7 +472,7 @@ const AddSponsorDelegateForm = () => {
         subject: `${eventDetails?.eventShortCode} - Sponsor Booking Form Step 2`,
         html: step2Html,
       };
-      
+
       try {
         const emailResponse = await fetch(
           "https://www.linq-staging-site.com/admin1/sendmail",
@@ -484,7 +484,7 @@ const AddSponsorDelegateForm = () => {
         );
         if (emailResponse.ok) {
           const emailResult = await emailResponse.json();
-          
+
         } else {
           const errorText = await emailResponse.text();
           console.error(
@@ -513,7 +513,7 @@ const AddSponsorDelegateForm = () => {
   const handlePaymentSuccess = async (stripeResponse) => {
     const prices = calculatePrices();
     async function sendStep3Email() {
-      
+
       let step3Html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -607,7 +607,7 @@ const AddSponsorDelegateForm = () => {
         subject: `${eventDetails?.eventShortCode} - Sponsor Booking Confirmation - Payment Successful`,
         html: step3Html,
       };
-      
+
       try {
         const emailResponse = await fetch(
           "https://www.linq-staging-site.com/admin1/sendmail",
@@ -725,16 +725,16 @@ const AddSponsorDelegateForm = () => {
           const marketingLiteratureAddOns = allAddOns.filter(
             (addon) =>
               addon.addOnTypeDetails.addOnTypeName ===
-                "Pre-event Marketing Add-ons" ||
+              "Pre-event Marketing Add-ons" ||
               addon.addOnTypeDetails.addOnTypeName ===
-                "Literature Distribution Add-ons",
+              "Literature Distribution Add-ons",
           );
           const sessionOnSiteAddOns = allAddOns.filter(
             (addon) =>
               addon.addOnTypeDetails.addOnTypeName ===
-                "Session Branding Add-ons" ||
+              "Session Branding Add-ons" ||
               addon.addOnTypeDetails.addOnTypeName ===
-                "On Site Branding Add-ons",
+              "On Site Branding Add-ons",
           );
           setMarketingAndLiterature(groupByType(marketingLiteratureAddOns));
           setSessionAndOnSite(groupByType(sessionOnSiteAddOns));
@@ -804,8 +804,8 @@ const AddSponsorDelegateForm = () => {
       parseFloat(activeDelPackageData[0]?.deligatePackagePrice || 0);
     const taxPercent = parseFloat(
       eventGeneralSettings?.purchaseTaxPercantage ||
-        eventGeneralSettings?.purchaseTaxPercent ||
-        0,
+      eventGeneralSettings?.purchaseTaxPercent ||
+      0,
     );
     const sponsorPackagePrice = packagePrice;
     const discountAmount =
@@ -1051,18 +1051,18 @@ const AddSponsorDelegateForm = () => {
     return (
       <>
         <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDesc} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDesc} />
-        <meta property="og:type" content="website" />
-        {seoImage && <meta property="og:image" content={seoImage} />}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoTitle} />
-        <meta name="twitter:description" content={seoDesc} />
-        {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href={canonicalUrl} />
-      </Helmet>
+          <title>{seoTitle}</title>
+          <meta name="description" content={seoDesc} />
+          <meta property="og:title" content={seoTitle} />
+          <meta property="og:description" content={seoDesc} />
+          <meta property="og:type" content="website" />
+          {seoImage && <meta property="og:image" content={seoImage} />}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={seoTitle} />
+          <meta name="twitter:description" content={seoDesc} />
+          {seoImage && <meta name="twitter:image" content={seoImage} />}
+          <link rel="canonical" href={canonicalUrl} />
+        </Helmet>
         <div id="root">
           <div className="PageForm_container__NA5Wr">
             <div className="PageForm_header__7W2Cz">
@@ -1203,11 +1203,9 @@ const AddSponsorDelegateForm = () => {
                               ""
                             }
                             companyName={companyDetails?.companyName || ""}
-                            orderDescription={`Payment for Sponsor- ${
-                              companyDetails?.companyName
-                            } - Type: ${
-                              selectedPackage?.sponsorPackageType
-                            } - Event: ${eventDetails?.eventName || ""}`}
+                            orderDescription={`Payment for Sponsor- ${companyDetails?.companyName
+                              } - Type: ${selectedPackage?.sponsorPackageType
+                              } - Event: ${eventDetails?.eventName || ""}`}
                             onPaymentSuccess={handlePaymentSuccess}
                             onPaymentError={handlePaymentError}
                           />
@@ -1274,8 +1272,7 @@ const AddSponsorDelegateForm = () => {
                   <span onClick={() => window.open("/cookie-policy", "_blank")}>
                     Cookie Policy
                   </span>
-                  <span className="PageForm_divide__vwhn0">|</span>IQ International PTe.
-                  LTD
+                  <span className="PageForm_divide__vwhn0">|</span>IQ International PTe.LTD
                 </p>
                 <p>©2026 Lithium Downstream Summit 2026</p>
               </div>
@@ -2042,8 +2039,8 @@ const AddSponsorDelegateForm = () => {
                 <span onClick={() => window.open("/privacy-policy", "_blank")}>Privacy Policy</span>
                 <span className="PageForm_divide__vwhn0">|</span>
                 <span onClick={() => window.open("/cookie-policy", "_blank")}>Cookie Policy</span>
-                <span className="PageForm_divide__vwhn0">|</span>IQ International PTe.
-                LTD
+                <span className="PageForm_divide__vwhn0">|</span>
+                <span onClick={() => window.open("https://iq-hub.com/", "_blank")}>IQ International PTe.LTD</span>
               </p>
               <p>©2026 Lithium Downstream Summit 2026</p>
             </div>
