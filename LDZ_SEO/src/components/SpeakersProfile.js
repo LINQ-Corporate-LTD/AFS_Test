@@ -44,27 +44,40 @@ const SpeakerProfile = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
-    // Skip initial fetch if SSR already resolved this speaker
-    if (ssrSpeakerProfile && ssrSpeakerProfile.length > 0) return;
+    // Reset for every navigation so stale data never shows
+    setSpeakerData([]);
+    setIsNotFound(false);
+    pendingRef.current = 1;
 
-    // ✅ If state is missing (e.g. user directly entered URL)
-    if (!state?.id) {
-      // Use SSR speakers list first, fall back to client fetch
-      if (ssrSpeakers && ssrSpeakers.length > 0) {
-        const matched = ssrSpeakers.find(
-          (s) => s.eventSpeakerName?.toLowerCase().replace(/\s+/g, "-") === slug
-        );
-        if (matched) {
-          fetchSpeakerById(matched.id);
-        } else {
-          setIsNotFound(true);
-        }
+    // Client-side navigation always has state.id — use it directly
+    if (state?.id) {
+      fetchSpeakerById(state.id);
+      return;
+    }
+
+    // Direct URL / refresh: trust SSR data only if it matches the current slug
+    if (ssrSpeakerProfile && ssrSpeakerProfile.length > 0) {
+      const ssrSlug = ssrSpeakerProfile[0]?.eventSpeakerName
+        ?.toLowerCase()
+        .replace(/\s+/g, "-");
+      if (ssrSlug === slug) {
+        setSpeakerData(ssrSpeakerProfile);
+        return;
+      }
+    }
+
+    // Fallback: resolve from SSR speakers list or full fetch
+    if (ssrSpeakers && ssrSpeakers.length > 0) {
+      const matched = ssrSpeakers.find(
+        (s) => s.eventSpeakerName?.toLowerCase().replace(/\s+/g, "-") === slug
+      );
+      if (matched) {
+        fetchSpeakerById(matched.id);
       } else {
-        fetchSpeakerBySlug(slug);
+        setIsNotFound(true);
       }
     } else {
-      // Fetch using the passed state.id
-      fetchSpeakerById(state.id);
+      fetchSpeakerBySlug(slug);
     }
   }, [state, slug]);
 
