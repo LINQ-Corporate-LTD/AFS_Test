@@ -88,7 +88,7 @@ const CompanyRegistrationForm = () => {
   );
 
   const portalId = "4000965";
-  const formGuid = "1e2e18e4-1877-4d07-9a22-6c2dbca5c2f8";
+  const formGuid = "d229ad10-47f1-43c2-a6e1-75193df6d98a";
 
   useEffect(() => {
     const initialDelegates = initializeDelegates();
@@ -284,14 +284,14 @@ const CompanyRegistrationForm = () => {
               { name: "city", value: formData.company.city },
               { name: "zip", value: formData.company.postalCode },
               { name: "website", value: formData.company.webAddress },
+              { name: "booking_form_phone_number", value: delegate.mobile },
               { name: "lastname", value: delegate.lastName },
               { name: "firstname", value: delegate.firstName },
-              { name: "booking_form_phone_number", value: delegate.mobile },
               { name: "jobtitle", value: delegate.position },
               { name: "email", value: delegate.email },
               { name: "invoice_number", value: invoiceNumber },
-              { name: "disposition_wdrm_2025", value: disposition },
-              { name: "email_status_wdrm_2025", value: emailStatus },
+              { name: "disposition_ldz_2026", value: disposition },
+              { name: "email_status_ldz_2026", value: emailStatus },
             ],
             context: {
               pageUri: window.location.href,

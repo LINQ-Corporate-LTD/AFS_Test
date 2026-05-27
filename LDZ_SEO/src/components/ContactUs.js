@@ -8,6 +8,8 @@ import "../assets/css/contactUs.css";
 import { Helmet } from "react-helmet-async";
 import { usePageSeo } from "../common/usePageSeo";
 import "../assets/css/form.css";
+import { useSSRData } from "../common/useSSRData";
+import { useApiData } from "../../src/common/ApiContext";
 const emailImage = "/images/WebCommonImages/icon-email.png";
 const emailIcon = "/images/WebCommonImages/msg.png";
 
@@ -15,6 +17,8 @@ const ContactUs = () => {
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200,
   );
+  const toEmails = useSSRData("toEmails") || "benny.scott@iq-hub.com";
+  const { eventDetails, eventGeneralSettings, navLogos } = useApiData();
   const [helpersList, setHelpersList] = useState([]);
   const [personName, setPersonName] = useState("");
   const [personNameError, setPersonNameError] = useState("");
@@ -27,18 +31,19 @@ const ContactUs = () => {
   const [personMobileError, setPersonMobileError] = useState("");
   const [message, setMessage] = useState("");
   const [reason, setReason] = useState([]);
+  console.log("reason: ", JSON.stringify(reason));
+
   const [contactUsPageData, setContactUsPageData] = useState([]);
   const [emailDes, setEmailDes] = useState("");
 
   const [personNameErrorMessage, setPersonNameErrorMessage] = useState("");
-  const [personCompanyErrorMessage, setPersonCompanyErrorMessage] = useState("");
+  const [personCompanyErrorMessage, setPersonCompanyErrorMessage] =
+    useState("");
   const [personEmailErrorMessage, setPersonEmailErrorMessage] = useState("");
   const [personMobileErrorMessage, setPersonMobileErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const subject = encodeURIComponent(
-    "Litihium Downstream Summit 2026",
-  );
+  const subject = encodeURIComponent("Litihium Downstream Summit 2026");
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -560,6 +565,106 @@ const ContactUs = () => {
     flexShrink: 0,
   };
 
+  const portalId = "4000965";
+  const formGuid = "388f5444-6fd6-455e-b464-7279843ff12d";
+
+  const reasonLabelMap = {
+    "Becoming a speaker": "Becoming a Speaker",
+    "Sponsorship packages": "Sponsorship Packages",
+    "Attending the show": "Delegates",
+  };
+
+  const getMappedReasons = () =>
+    reason.map((r) => reasonLabelMap[r] || r).join("; ");
+
+  async function sendContactUsEmail(email) {
+    const htmlContent = `<h2>Contact Us form:</h2>
+      <table style="width:max-content;">
+      <tr><td style="text-align:right; font-weight:700;">Name:</td><td style="padding-left:15px;">${personName}</td></tr>
+      <tr><td style="text-align:right; font-weight:700;">Company:</td><td style="padding-left:15px;">${personCompany}</td></tr>
+      <tr><td style="text-align:right; font-weight:700;">Email:</td><td style="padding-left:15px;">${personEmail}</td></tr>
+      <tr><td style="text-align:right; font-weight:700;">Mobile:</td><td style="padding-left:15px;">${personMobile}</td></tr>
+      <tr><td style="text-align:right; font-weight:700;">Tell me more:</td><td style="padding-left:15px;">${reason.join(", ")}</td></tr>
+      <tr><td style="text-align:right; font-weight:700;">Message:</td><td style="padding-left:15px;">${message}</td></tr>
+      </table>
+      <p style="font-weight: 700">
+        <span style="text-decoration: underline">Quick Access</span>
+        <br />
+        Link: <a style="font-weight: 500" target="_blank" href="https://www.linq-staging-site.com">https://www.linq-staging-site.com</a>
+      </p>
+    `;
+
+    const emailPayload = {
+      toemail: toEmails,
+      cc: "",
+      subject: `CONTACT US - ${eventDetails?.eventName}`,
+      html: htmlContent,
+    };
+
+    try {
+      const emailResponse = await fetch(
+        "https://www.linq-staging-site.com/admin1/sendmail",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(emailPayload),
+        },
+      );
+      const emailResult = await emailResponse.json();
+      if (emailResult.status === "success") {
+        console.log("✅ Contact Us email sent successfully");
+      } else {
+        console.error(
+          "❌ Contact Us email sending failed:",
+          emailResult.message,
+        );
+      }
+    } catch (error) {
+      console.error("❌ Error sending Contact Us email:", error);
+    }
+  }
+
+  async function submitContactToHubSpot() {
+    const payload = {
+      fields: [
+        { name: "company", value: personCompany || "" },
+        { name: "lastname", value: personName || "" },
+        { name: "firstname", value: personName || "" },
+        { name: "phone", value: personMobile || "" },
+        { name: "email", value: personEmail || "" },
+        { name: "message", value: message || "" },
+        { name: "interested_for", value: getMappedReasons() },
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title,
+      },
+    };
+
+    try {
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        },
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("✅ HubSpot submission success:", result);
+      } else {
+        console.error("❌ HubSpot submission failed:", result);
+      }
+    } catch (error) {
+      console.error("❌ Error submitting to HubSpot:", error);
+    }
+  }
+
   // Event Handlers
   const handleSubmitHover = (e, isHovering) => {
     if (isHovering) {
@@ -572,7 +677,6 @@ const ContactUs = () => {
   };
 
   const checkOnChange = () => {
-
     let hasError = false;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -581,47 +685,46 @@ const ContactUs = () => {
     setPersonEmailError(false);
     setPersonMobileError(false);
 
-
     if (!personName || personName.trim() === "") {
-      setPersonNameErrorMessage(<p>Full name is required</p>)
+      setPersonNameErrorMessage(<p>Full name is required</p>);
       setPersonNameError(true);
       hasError = true;
     } else {
-      setPersonNameErrorMessage("")
+      setPersonNameErrorMessage("");
     }
 
     if (!personCompany || personCompany.trim() === "") {
-      setPersonCompanyErrorMessage(<p>Company name is required</p>)
+      setPersonCompanyErrorMessage(<p>Company name is required</p>);
       setPersonCompanyError(true);
       hasError = true;
     } else {
-      setPersonCompanyErrorMessage("")
+      setPersonCompanyErrorMessage("");
     }
 
     if (!personEmail || personEmail.trim() === "") {
-      setPersonEmailErrorMessage(<p>Email address is required</p>)
+      setPersonEmailErrorMessage(<p>Email address is required</p>);
       setPersonEmailError(true);
       hasError = true;
     } else if (!emailRegex.test(personEmail)) {
-      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>);
       setPersonEmailError(true);
       hasError = true;
     } else {
-      setPersonEmailErrorMessage("")
+      setPersonEmailErrorMessage("");
     }
 
     if (!personMobile || personMobile.trim() === "") {
-      setPersonMobileErrorMessage(<p>Mobile number is required</p>)
+      setPersonMobileErrorMessage(<p>Mobile number is required</p>);
       setPersonMobileError(true);
       hasError = true;
     } else {
-      setPersonMobileErrorMessage("")
+      setPersonMobileErrorMessage("");
     }
 
     if (hasError) return;
   };
 
-  const submitBtnClk = (e) => {
+  const submitBtnClk = async (e) => {
     e.preventDefault();
 
     let hasError = false;
@@ -632,84 +735,109 @@ const ContactUs = () => {
     setPersonEmailError(false);
     setPersonMobileError(false);
 
-
     if (!personName || personName.trim() === "") {
-      setPersonNameErrorMessage(<p>Full name is required</p>)
+      setPersonNameErrorMessage(<p>Full name is required</p>);
       setPersonNameError(true);
       hasError = true;
     } else {
-      setPersonNameErrorMessage("")
+      setPersonNameErrorMessage("");
     }
 
     if (!personCompany || personCompany.trim() === "") {
-      setPersonCompanyErrorMessage(<p>Company name is required</p>)
+      setPersonCompanyErrorMessage(<p>Company name is required</p>);
       setPersonCompanyError(true);
       hasError = true;
     } else {
-      setPersonCompanyErrorMessage("")
+      setPersonCompanyErrorMessage("");
     }
 
     if (!personEmail || personEmail.trim() === "") {
-      setPersonEmailErrorMessage(<p>Email address is required</p>)
+      setPersonEmailErrorMessage(<p>Email address is required</p>);
       setPersonEmailError(true);
       hasError = true;
     } else if (!emailRegex.test(personEmail)) {
-      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>)
+      setPersonEmailErrorMessage(<p>Please enter a valid email address</p>);
       setPersonEmailError(true);
       hasError = true;
     } else {
-      setPersonEmailErrorMessage("")
+      setPersonEmailErrorMessage("");
     }
 
     if (!personMobile || personMobile.trim() === "") {
-      setPersonMobileErrorMessage(<p>Mobile number is required</p>)
+      setPersonMobileErrorMessage(<p>Mobile number is required</p>);
       setPersonMobileError(true);
       hasError = true;
     } else {
-      setPersonMobileErrorMessage("")
+      setPersonMobileErrorMessage("");
     }
 
     if (hasError) return;
 
-    setSuccessMessage(<p style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Submitted Successfully</p>)
-    setTimeout(() => {
-      setSuccessMessage("");
-    }, 5000);
+    try {
+      // =========================
+      // Existing API Submission
+      // =========================
+      const finalData = new FormData();
 
-    const finalData = new FormData();
-    finalData.append("contactPersonName", personName);
-    finalData.append("contactPersonCompanyName", personCompany);
-    finalData.append("contactPersonEmail", personEmail);
-    finalData.append("contactPersonMobile", personMobile);
-    finalData.append("contactPersonMessage", message);
-    if (reason?.length > 0) {
-      finalData.append("contactUsReason", JSON.stringify(reason));
+      finalData.append("contactPersonName", personName);
+      finalData.append("contactPersonCompanyName", personCompany);
+      finalData.append("contactPersonEmail", personEmail);
+      finalData.append("contactPersonMobile", personMobile);
+      finalData.append("contactPersonMessage", message);
+
+      if (reason?.length > 0) {
+        finalData.append("contactUsReason", JSON.stringify(reason));
+      }
+
+      const response = await fetch(
+        "https://www.linq-staging-site.com/admin1/addcontactusrequest",
+        {
+          method: "POST",
+          body: finalData,
+        },
+      );
+
+      const data = await response.json();
+
+      if (data.status) {
+        // =========================
+        // HubSpot Submission
+        // =========================
+        await submitContactToHubSpot();
+
+        // =========================
+        // Send Contact Email
+        // =========================
+        await sendContactUsEmail();
+
+        // =========================
+        // Success Message
+        // =========================
+        setSuccessMessage(
+          <p style={{ color: "green", textAlign: "center", marginTop: "10px" }}>
+            Submitted Successfully
+          </p>,
+        );
+
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 5000);
+
+        // =========================
+        // Reset Form
+        // =========================
+        setPersonName("");
+        setPersonCompany("");
+        setPersonEmail("");
+        setPersonMobile("");
+        setMessage("");
+        setReason([]);
+      } else {
+        console.error("❌ Form submission failed");
+      }
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
     }
-
-    const requestOptions = {
-      method: "POST",
-      body: finalData,
-    };
-    fetch(
-      "https://www.linq-staging-site.com/admin1/addcontactusrequest",
-      requestOptions,
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status) {
-          setPersonName("");
-          setPersonCompany("");
-          setPersonEmail("");
-          setPersonMobile("");
-          setMessage("");
-          setReason([]);
-        } else {
-          // toast.error(data?.message);
-        }
-      })
-      .catch((error) => {
-        console.log("error: ", error);
-      });
   };
 
   const handleCheckboxChange = (e) => {
@@ -739,7 +867,10 @@ const ContactUs = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://www.linq-staging-site.com/contact-us" />
+        <link
+          rel="canonical"
+          href="https://www.linq-staging-site.com/contact-us"
+        />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ opacity: 1 }}>
@@ -854,10 +985,10 @@ const ContactUs = () => {
                             <input
                               type="checkbox"
                               id="speaker"
-                              name="speaker_opportunities"
+                              name="Becoming a speaker"
                               value="Checked"
                               onChange={handleCheckboxChange}
-                              checked={reason.includes("speaker_opportunities")}
+                              checked={reason.includes("Becoming a speaker")}
                             ></input>
                             <label>Becoming a speaker</label>
                           </div>
@@ -865,10 +996,10 @@ const ContactUs = () => {
                             <input
                               type="checkbox"
                               id="sponsorship"
-                              name="sponsorship_options"
+                              name="Sponsorship packages"
                               value="Checked"
                               onChange={handleCheckboxChange}
-                              checked={reason.includes("sponsorship_options")}
+                              checked={reason.includes("Sponsorship packages")}
                             ></input>
                             <label>Sponsorship packages</label>
                           </div>
@@ -876,10 +1007,10 @@ const ContactUs = () => {
                             <input
                               type="checkbox"
                               id="attending"
-                              name="attending_the_event"
+                              name="Attending the show"
                               value="Checked"
                               onChange={handleCheckboxChange}
-                              checked={reason.includes("attending_the_event")}
+                              checked={reason.includes("Attending the show")}
                             ></input>
                             <label>Attending the show</label>
                           </div>
@@ -913,10 +1044,20 @@ const ContactUs = () => {
                   <div className="ContactUs_emailCard__YpEIv">
                     <h5>{helper?.reasonToHelp}:</h5>
                     <h6>{helper?.helpingPersonName}</h6>
-                    <p style={{ visibility: helper?.helpingPersonDesignation ? "visible" : "hidden" }}>
-                      {!helper?.helpingPersonDesignation ? "Hidden" : helper?.helpingPersonDesignation}
+                    <p
+                      style={{
+                        visibility: helper?.helpingPersonDesignation
+                          ? "visible"
+                          : "hidden",
+                      }}
+                    >
+                      {!helper?.helpingPersonDesignation
+                        ? "Hidden"
+                        : helper?.helpingPersonDesignation}
                     </p>
-                    <a href={`mailto:${helper?.helpingPersonEmail}?subject=Lithium Downstream Summit 2026`}>
+                    <a
+                      href={`mailto:${helper?.helpingPersonEmail}?subject=Lithium Downstream Summit 2026`}
+                    >
                       <img
                         src={emailIcon}
                         alt="Email Icon"
