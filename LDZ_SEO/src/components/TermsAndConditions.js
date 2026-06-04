@@ -53,7 +53,7 @@ const TermsAndConditions = () => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
-        <link rel="canonical" href="https://www.linq-staging-site.com/terms-and-conditions" />
+        <link rel="canonical" href="http://127.0.0.1:8000/terms-and-conditions" />
       </Helmet>
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>
         <Navbar forceScrolled />

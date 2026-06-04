@@ -24,7 +24,7 @@ const CookiePolicy = () => {
   const seoTitle = pageSeo.pageMetaTitle;
   const seoDesc = pageSeo.pageMetaDescription;
   const seoImage = pageSeo.pageOgImage || null;
-  const canonicalUrl = "https://www.linq-staging-site.com/cookie-policy";
+  const canonicalUrl = "http://127.0.0.1:8000/cookie-policy";
 
   return (
     <>

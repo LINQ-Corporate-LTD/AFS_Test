@@ -109,7 +109,7 @@ const EditContactUsHelper = ({
         body: finalData,
       };
       fetch(
-        "https://www.linq-staging-site.com/admin1/editcontactuspagehelper",
+        "http://127.0.0.1:8000/admin1/editcontactuspagehelper",
         requestOptions
       )
         .then((response) => response.json())

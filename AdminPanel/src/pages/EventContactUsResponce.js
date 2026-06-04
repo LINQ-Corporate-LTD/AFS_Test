@@ -71,7 +71,7 @@ const EventContactUsResponse = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/contactsofcontactus`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/contactsofcontactus`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -188,7 +188,7 @@ const EventContactUsResponse = () => {
         body: finalData,
       };
       fetch(
-        "https://www.linq-staging-site.com/admin1/deletecontactuscontact",
+        "http://127.0.0.1:8000/admin1/deletecontactuscontact",
         requestOptions
       )
         .then((response) => response.json())

@@ -75,7 +75,7 @@ const VenueContain = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/getvenuedata`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/getvenuedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -113,7 +113,7 @@ const VenueContain = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/venuegalleryimages`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/venuegalleryimages`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (

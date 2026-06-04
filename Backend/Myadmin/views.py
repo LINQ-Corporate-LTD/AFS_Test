@@ -35,7 +35,7 @@ def upload_media(request):
         location = "media"
         filename = fs.save(location + myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        uploaded_file_url = "https://www.linq-staging-site.com" + uploaded_file_url
+        uploaded_file_url = "http://127.0.0.1:8000" + uploaded_file_url
     return JsonResponse({'status': True, "message": "Record Updated Successfully", "uploadedURL": uploaded_file_url})
 
 #---------------------------- Api For Home Page Data ----------------------------#
@@ -5197,7 +5197,7 @@ def create_payment_intent(request):
             # Automatically confirm the payment
             confirm=True,
             # Return URL for 3D Secure authentication (optional but recommended)
-            return_url='https://www.linq-staging-site.com/payment-success',
+            return_url='http://127.0.0.1:8000/payment-success',
             # These are useful metadata you can retrieve later
             metadata={
                 'order_id': data.get('order_id', ''),

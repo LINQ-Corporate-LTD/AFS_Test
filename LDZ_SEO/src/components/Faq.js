@@ -19,7 +19,7 @@ const Faq = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/eventfaqs`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventfaqs`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -101,7 +101,7 @@ const Faq = () => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDesc} />
         {seoImage && <meta name="twitter:image" content={seoImage} />}
-        <link rel="canonical" href="https://www.linq-staging-site.com/faq" />
+        <link rel="canonical" href="http://127.0.0.1:8000/faq" />
       </Helmet>
       <Navbar forceScrolled />
       <div style={{ marginTop: windowWidth > 1024 ? "120px" : "" }}>

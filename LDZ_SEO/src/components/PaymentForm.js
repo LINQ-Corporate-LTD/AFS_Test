@@ -65,7 +65,7 @@ const CheckoutForm = forwardRef(
 
         // STEP 2: Send payment method to your Django backend
         const response = await fetch(
-          "https://www.linq-staging-site.com/admin1/stripe-client-secret",
+          "http://127.0.0.1:8000/admin1/stripe-client-secret",
           {
             method: "POST",
             headers: {

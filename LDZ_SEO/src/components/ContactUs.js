@@ -64,7 +64,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/contactushelpers`,
+      `http://127.0.0.1:8000/admin1/contactushelpers`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -94,7 +94,7 @@ const ContactUs = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/contactusstaticdata`,
+      `http://127.0.0.1:8000/admin1/contactusstaticdata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -590,7 +590,7 @@ const ContactUs = () => {
       <p style="font-weight: 700">
         <span style="text-decoration: underline">Quick Access</span>
         <br />
-        Link: <a style="font-weight: 500" target="_blank" href="https://www.linq-staging-site.com">https://www.linq-staging-site.com</a>
+        Link: <a style="font-weight: 500" target="_blank" href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>
       </p>
     `;
 
@@ -603,7 +603,7 @@ const ContactUs = () => {
 
     try {
       const emailResponse = await fetch(
-        "https://www.linq-staging-site.com/admin1/sendmail",
+        "http://127.0.0.1:8000/admin1/sendmail",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -790,7 +790,7 @@ const ContactUs = () => {
       }
 
       const response = await fetch(
-        "https://www.linq-staging-site.com/admin1/addcontactusrequest",
+        "http://127.0.0.1:8000/admin1/addcontactusrequest",
         {
           method: "POST",
           body: finalData,
@@ -869,7 +869,7 @@ const ContactUs = () => {
         {seoImage && <meta name="twitter:image" content={seoImage} />}
         <link
           rel="canonical"
-          href="https://www.linq-staging-site.com/contact-us"
+          href="http://127.0.0.1:8000/contact-us"
         />
       </Helmet>
       <Navbar forceScrolled />

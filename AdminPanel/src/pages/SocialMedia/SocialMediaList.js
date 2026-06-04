@@ -54,7 +54,7 @@ const SocilMediaList = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/footersocialmediaoptions`,
+      `http://127.0.0.1:8000/admin1/footersocialmediaoptions`,
       requestOptions
     )
       .then((response) => response.json())

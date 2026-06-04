@@ -25,7 +25,7 @@ const override = css`
   height: 100%;
 `;
 
-const BASE_URL = "https://www.linq-staging-site.com"; // USE LOCAL FOR DEBUGGING
+const BASE_URL = "http://127.0.0.1:8000"; // USE LOCAL FOR DEBUGGING
 
 const AgendaList = () => {
   const navigate = useNavigate();

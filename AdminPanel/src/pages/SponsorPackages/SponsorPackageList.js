@@ -72,7 +72,7 @@ const SponsorPackageList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/sponsorpackages`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/sponsorpackages`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -205,7 +205,7 @@ const SponsorPackageList = () => {
         body: finalData,
       };
       fetch(
-        "https://www.linq-staging-site.com/admin1/deletesponsorpackage",
+        "http://127.0.0.1:8000/admin1/deletesponsorpackage",
         requestOptions
       )
         .then((response) => response.json())

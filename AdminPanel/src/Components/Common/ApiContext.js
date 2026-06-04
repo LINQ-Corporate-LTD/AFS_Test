@@ -31,7 +31,7 @@ export const ApiDataProvider = ({ children }) => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/homepagedata`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/homepagedata`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (

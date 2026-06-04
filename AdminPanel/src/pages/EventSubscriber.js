@@ -68,7 +68,7 @@ const EventSubscriber = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/subscriberslist`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/subscriberslist`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -155,7 +155,7 @@ const EventSubscriber = () => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://www.linq-staging-site.com/admin1/deletesubscriber", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/deletesubscriber", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

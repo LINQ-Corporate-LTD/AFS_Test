@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const BASE_URL = "https://www.linq-staging-site.com/admin1";
+const BASE_URL = "http://127.0.0.1:8000/admin1";
 
 const FooterNavigation = () => {
   const navigate = useNavigate();

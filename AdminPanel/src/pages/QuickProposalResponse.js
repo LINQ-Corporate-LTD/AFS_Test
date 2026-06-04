@@ -71,7 +71,7 @@ const QuickProposalResponse = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/quickproposalresponses`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/quickproposalresponses`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -182,7 +182,7 @@ const QuickProposalResponse = () => {
         body: finalData,
       };
       fetch(
-        "https://www.linq-staging-site.com/admin1/deletequickproposalrequest",
+        "http://127.0.0.1:8000/admin1/deletequickproposalrequest",
         requestOptions
       )
         .then((response) => response.json())

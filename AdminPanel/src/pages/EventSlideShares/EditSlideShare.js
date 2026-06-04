@@ -81,7 +81,7 @@ const EditSlideShare = ({
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/eventprojects`,
+      `http://127.0.0.1:8000/admin1/eventprojects`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -145,7 +145,7 @@ const EditSlideShare = ({
 
     try {
       const response = await fetch(
-        "https://www.linq-staging-site.com/admin1/upload",
+        "http://127.0.0.1:8000/admin1/upload",
         requestOptions,
       );
       const data = await response.json();
@@ -311,7 +311,7 @@ const EditSlideShare = ({
         body: finalData,
       };
       fetch(
-        "https://www.linq-staging-site.com/admin1/editslideShare",
+        "http://127.0.0.1:8000/admin1/editslideShare",
         requestOptions,
       )
         .then((response) => response.json())

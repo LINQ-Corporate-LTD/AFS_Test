@@ -47,7 +47,7 @@ const ExhibitorPackages = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/homepagecompanieslogo`,
+      `http://127.0.0.1:8000/admin1/homepagecompanieslogo`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -76,7 +76,7 @@ const ExhibitorPackages = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/sponsorcards`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/sponsorcards`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -162,7 +162,7 @@ const ExhibitorPackages = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/mediapagehelpers`,
+      `http://127.0.0.1:8000/admin1/mediapagehelpers`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -192,7 +192,7 @@ const ExhibitorPackages = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/sponsorpackages`,
+      `http://127.0.0.1:8000/admin1/sponsorpackages`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -222,7 +222,7 @@ const ExhibitorPackages = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/getsponsorpagedata`,
+      `http://127.0.0.1:8000/admin1/getsponsorpagedata`,
       requestOptions,
     )
       .then((response) => response.json())
@@ -392,7 +392,7 @@ const ExhibitorPackages = () => {
         {seoImage && <meta name="twitter:image" content={seoImage} />}
         <link
           rel="canonical"
-          href="https://www.linq-staging-site.com/sponsor-packages"
+          href="http://127.0.0.1:8000/sponsor-packages"
         />
       </Helmet>
       <Navbar forceScrolled />

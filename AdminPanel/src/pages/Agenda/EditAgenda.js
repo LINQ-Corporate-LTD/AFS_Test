@@ -62,7 +62,7 @@
 //   { label: "No", value: "no" },
 // ];
 
-// const BASE_URL = "https://www.linq-staging-site.com"; // USE LOCAL FOR DEBUGGING
+// const BASE_URL = "http://127.0.0.1:8000"; // USE LOCAL FOR DEBUGGING
 
 // const EditAgenda = () => {
 //   const navigate = useNavigate();
@@ -1805,7 +1805,7 @@ const moderatorOptions = [
   { label: "No", value: "no" },
 ];
 
-const BASE_URL = "https://www.linq-staging-site.com";
+const BASE_URL = "http://127.0.0.1:8000";
 
 const EditAgenda = () => {
   const navigate = useNavigate();

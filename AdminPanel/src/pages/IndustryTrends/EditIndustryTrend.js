@@ -157,7 +157,7 @@ const EditIndustryTrend = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://www.linq-staging-site.com/admin1/editindustrytrends", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/editindustrytrends", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

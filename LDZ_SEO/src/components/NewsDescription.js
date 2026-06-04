@@ -88,7 +88,7 @@ const NewsDescription = () => {
     formData.append("newsId", id);
     const requestOptions = { method: "POST", body: formData };
 
-    fetch(`https://www.linq-staging-site.com/admin1/newsbyid`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/newsbyid`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status && data.NewsData?.length > 0) {
@@ -117,7 +117,7 @@ const NewsDescription = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/generalnews`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/generalnews`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.status) {
@@ -255,8 +255,8 @@ Read the full article: ${currentUrl}`);
   const seoImage = activeNews?.newsImage;
 
   const canonicalUrl = slug
-    ? `https://www.linq-staging-site.com/news/${slug}`
-    : "https://www.linq-staging-site.com/news";
+    ? `http://127.0.0.1:8000/news/${slug}`
+    : "http://127.0.0.1:8000/news";
 
   return (
     <>

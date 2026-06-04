@@ -64,7 +64,7 @@ const AddEventSponsor = (props) => {
 
     try {
       const response = await fetch(
-        "https://www.linq-staging-site.com/admin1/upload",
+        "http://127.0.0.1:8000/admin1/upload",
         requestOptions
       );
       const data = await response.json();
@@ -157,7 +157,7 @@ const AddEventSponsor = (props) => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://www.linq-staging-site.com/admin1/addsponsor", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/addsponsor", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

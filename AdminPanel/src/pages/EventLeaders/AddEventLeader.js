@@ -34,7 +34,7 @@ const AddEventLeader = (props) => {
 
     try {
       const response = await fetch(
-        "https://www.linq-staging-site.com/admin1/upload",
+        "http://127.0.0.1:8000/admin1/upload",
         requestOptions
       );
       const data = await response.json();
@@ -108,7 +108,7 @@ const AddEventLeader = (props) => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://www.linq-staging-site.com/admin1/addeventleader", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/addeventleader", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

@@ -23,8 +23,8 @@ const Error404 = () => {
   const seoTitle = '404 - Page Not Found';
   const seoDesc = 'The page you are looking for does not exist.';
   const canonicalUrl = slug
-    ? `https://www.linq-staging-site.com/${slug}`
-    : "https://www.linq-staging-site.com/404";
+    ? `http://127.0.0.1:8000/${slug}`
+    : "http://127.0.0.1:8000/404";
 
 
   return (

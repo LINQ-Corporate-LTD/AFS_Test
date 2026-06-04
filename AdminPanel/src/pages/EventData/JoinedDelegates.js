@@ -67,7 +67,7 @@ const JoinedDelegates = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/joineddelegates`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/joineddelegates`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -185,7 +185,7 @@ const JoinedDelegates = () => {
         method: "POST",
         body: finalData,
       };
-      fetch("https://www.linq-staging-site.com/admin1/deletefaq", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/deletefaq", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (

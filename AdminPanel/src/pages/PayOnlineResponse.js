@@ -68,7 +68,7 @@ const PayOnlineResponse = () => {
         const requestOptions = {
             method: "GET",
         };
-        fetch(`https://www.linq-staging-site.com/admin1/payonlinetransections`, requestOptions)
+        fetch(`http://127.0.0.1:8000/admin1/payonlinetransections`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (
@@ -167,7 +167,7 @@ const PayOnlineResponse = () => {
     //             method: "POST",
     //             body: finalData,
     //         };
-    //         fetch("https://www.linq-staging-site.com/admin1/deletesubscriber", requestOptions)
+    //         fetch("http://127.0.0.1:8000/admin1/deletesubscriber", requestOptions)
     //             .then((response) => response.json())
     //             .then((data) => {
     //                 if (

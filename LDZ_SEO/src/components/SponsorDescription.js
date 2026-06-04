@@ -37,8 +37,8 @@ const SponsorDescription = () => {
   const metaDesc = activeSponsor?.eventSponsorMetaDescription?.trim();
 
   const canonicalUrl = slug
-    ? `https://www.linq-staging-site.com/sponsor/${slug}`
-    : "https://www.linq-staging-site.com/sponsors";
+    ? `http://127.0.0.1:8000/sponsor/${slug}`
+    : "http://127.0.0.1:8000/sponsors";
   const [fullName, setFullName] = useState("");
   const [fullNameErr, setFullNameErr] = useState(false);
   const [companyName, setCompanyName] = useState("");
@@ -91,7 +91,7 @@ const SponsorDescription = () => {
       const formData = new FormData();
       formData.append("sponsorId", sponsorId);
 
-      const response = await fetch(`https://www.linq-staging-site.com/admin1/sponsorbyid`, {
+      const response = await fetch(`http://127.0.0.1:8000/admin1/sponsorbyid`, {
         method: "POST",
         body: formData,
       });
@@ -110,7 +110,7 @@ const SponsorDescription = () => {
   const fetchSponsorBySlug = async (slug) => {
     try {
       const response = await fetch(
-        `https://www.linq-staging-site.com/admin1/eventsponsors`
+        `http://127.0.0.1:8000/admin1/eventsponsors`
       );
       const data = await response.json();
 
@@ -265,7 +265,7 @@ const SponsorDescription = () => {
       body: finalData,
     };
     fetch(
-      "https://www.linq-staging-site.com/admin1/addquickproposalrequest",
+      "http://127.0.0.1:8000/admin1/addquickproposalrequest",
       requestOptions,
     )
       .then((response) => response.json())
@@ -336,7 +336,7 @@ const SponsorDescription = () => {
   //       body: finalData,
   //     };
   //     fetch(
-  //       "https://www.linq-staging-site.com/admin1/addquickproposalrequest",
+  //       "http://127.0.0.1:8000/admin1/addquickproposalrequest",
   //       requestOptions
   //     )
   //       .then((response) => response.json())

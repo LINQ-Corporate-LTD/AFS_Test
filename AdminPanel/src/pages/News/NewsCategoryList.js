@@ -77,7 +77,7 @@ const NewsCategoryList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/newscategories`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/newscategories`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -182,7 +182,7 @@ const NewsCategoryList = () => {
         body: finalData,
       };
       fetch(
-        'https://www.linq-staging-site.com/admin1/deletenewscategory',
+        'http://127.0.0.1:8000/admin1/deletenewscategory',
         requestOptions
       )
         .then((response) => response.json())

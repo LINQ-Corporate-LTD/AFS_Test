@@ -71,7 +71,7 @@ const EventLeaders = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/eventleaderlist`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventleaderlist`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -192,7 +192,7 @@ const EventLeaders = () => {
         body: finalData,
       };
       fetch(
-        'https://www.linq-staging-site.com/admin1/deleteeventleader',
+        'http://127.0.0.1:8000/admin1/deleteeventleader',
         requestOptions
       )
         .then((response) => response.json())

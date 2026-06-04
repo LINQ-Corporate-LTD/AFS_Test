@@ -1,0 +1,68 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "1 - AdminPanel",
+            "type": "shell",
+            "command": "npm i --legacy-peer-deps; npm start",
+            "options": {
+                "cwd": "${workspaceFolder}\\AdminPanel",
+                "shell": {
+                    "executable": "powershell.exe",
+                    "args": ["-NoProfile", "-Command"]
+                }
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "group": "servers",
+                "reveal": "always",
+                "showReuseMessage": false
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "2 - LDZ_SEO",
+            "type": "shell",
+            "command": "npm i; npm run build; npm run start:ssr",
+            "options": {
+                "cwd": "${workspaceFolder}\\LDZ_SEO",
+                "shell": {
+                    "executable": "powershell.exe",
+                    "args": ["-NoProfile", "-Command"]
+                }
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "group": "servers",
+                "reveal": "always",
+                "showReuseMessage": false
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "3 - Backend",
+            "type": "shell",
+            "command": "python manage.py runserver",
+            "options": {
+                "cwd": "${workspaceFolder}\\Backend",
+                "shell": {
+                    "executable": "powershell.exe",
+                    "args": ["-NoProfile", "-Command"]
+                }
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "group": "servers",
+                "reveal": "always",
+                "showReuseMessage": false
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}

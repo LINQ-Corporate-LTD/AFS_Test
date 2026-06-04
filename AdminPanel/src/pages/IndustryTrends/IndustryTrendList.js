@@ -74,7 +74,7 @@ const IndustryTrendList = () => {
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/eventindustrytrends`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/eventindustrytrends`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -189,7 +189,7 @@ const IndustryTrendList = () => {
         body: finalData,
       };
       fetch(
-        'https://www.linq-staging-site.com/admin1/deleteindustrytrends',
+        'http://127.0.0.1:8000/admin1/deleteindustrytrends',
         requestOptions
       )
         .then((response) => response.json())

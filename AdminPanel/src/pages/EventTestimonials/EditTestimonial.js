@@ -118,7 +118,7 @@ const EditTestimonial = ({
         body: finalData,
       };
       fetch(
-        "https://www.linq-staging-site.com/admin1/edittestimonial",
+        "http://127.0.0.1:8000/admin1/edittestimonial",
         requestOptions
       )
         .then((response) => response.json())

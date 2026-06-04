@@ -77,7 +77,7 @@ const BlockDomains = () => {
         const requestOptions = {
             method: "GET",
         };
-        fetch(`https://www.linq-staging-site.com/admin1/getblockdomain`, requestOptions)
+        fetch(`http://127.0.0.1:8000/admin1/getblockdomain`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (
@@ -181,7 +181,7 @@ const BlockDomains = () => {
                 body: finalData,
             };
             fetch(
-                'https://www.linq-staging-site.com/admin1/deleteblockdomain',
+                'http://127.0.0.1:8000/admin1/deleteblockdomain',
                 requestOptions
             )
                 .then((response) => response.json())

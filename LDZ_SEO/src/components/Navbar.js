@@ -79,7 +79,7 @@
 //     const requestOptions = {
 //       method: "GET",
 //     };
-//     fetch(`https://www.linq-staging-site.com/admin1/getnavitems`, requestOptions)
+//     fetch(`http://127.0.0.1:8000/admin1/getnavitems`, requestOptions)
 //       .then((response) => response.json())
 //       .then((data) => {
 //         if (data && data.status) {
@@ -409,7 +409,7 @@ const Navbar = ({ disableScrollEffect = false, forceScrolled = false }) => {
   // ✅ Client-side fallback: fetch navLogos if SSR data is null
   useEffect(() => {
     if (navLogos) return;
-    fetch("https://www.linq-staging-site.com/admin1/getnavlogos")
+    fetch("http://127.0.0.1:8000/admin1/getnavlogos")
       .then((r) => r.json())
       .then((data) => {
         if (data?.status && data.navLogos) {

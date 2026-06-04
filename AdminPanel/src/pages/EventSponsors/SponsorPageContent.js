@@ -60,7 +60,7 @@ const SponsorPageContent = () => {
       method: "GET",
     };
     fetch(
-      `https://www.linq-staging-site.com/admin1/getsponsorpagedata`,
+      `http://127.0.0.1:8000/admin1/getsponsorpagedata`,
       requestOptions
     )
       .then((response) => response.json())

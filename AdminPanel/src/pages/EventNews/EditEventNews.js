@@ -100,7 +100,7 @@ const EditEventNews = ({
     const requestOptions = {
       method: "GET",
     };
-    fetch(`https://www.linq-staging-site.com/admin1/newscategories`, requestOptions)
+    fetch(`http://127.0.0.1:8000/admin1/newscategories`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (
@@ -162,7 +162,7 @@ const EditEventNews = ({
 
     try {
       const response = await fetch(
-        "https://www.linq-staging-site.com/admin1/upload",
+        "http://127.0.0.1:8000/admin1/upload",
         requestOptions
       );
       const data = await response.json();
@@ -308,7 +308,7 @@ const EditEventNews = ({
         method: "POST",
         body: finalData,
       };
-      fetch("https://www.linq-staging-site.com/admin1/editgeneralnews", requestOptions)
+      fetch("http://127.0.0.1:8000/admin1/editgeneralnews", requestOptions)
         .then((response) => response.json())
         .then((data) => {
           if (
