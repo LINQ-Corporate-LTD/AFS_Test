@@ -117,7 +117,9 @@ def parse_news_articles(html: str) -> list:
 
     for p in soup.find_all("p"):
         raw = p.get_text(strip=True)
-        # Strip non-ASCII chars
+        # Normalise smart quotes/apostrophes to ASCII before stripping non-ASCII
+        raw = raw.replace('‘', "'").replace('’', "'")   # ' '
+        raw = raw.replace('“', '"').replace('”', '"')   # " "
         ascii_only = re.sub(r"[^\x20-\x7E]", "", raw).strip()
         # Article separator: a paragraph that is only dots (and whitespace)
         is_separator = bool(ascii_only) and not ascii_only.strip(".")
@@ -209,10 +211,13 @@ def _sanitize_filename(name: str) -> str:
 def _get_news_image_url(title: str, source_dir, base_url: str, upload_api: str, dry_run: bool, prefix: str = "LDZ"):
     """Convenience wrapper for news images named '{prefix}_{sanitized_title}.{ext}'.
     Tries the raw title first, then the Drive-sanitized form (all Windows-invalid chars → hyphen),
-    and .jpg, .png, and .webp extensions."""
+    and .jpg, .png, and .webp extensions.
+    Also tries curly-apostrophe variants because Drive preserves U+2019 in filenames."""
     sanitized = _sanitize_filename(title)
     candidates = [title] if title == sanitized else [title, sanitized]
-    for candidate in candidates:
+    # Drive keeps curly apostrophes (U+2019) in filenames; add those variants too
+    extra = [c.replace("'", "’") for c in candidates if "'" in c]
+    for candidate in candidates + extra:
         for ext in ("jpg", "png", "webp"):
             url, uploaded = _get_url(f"{prefix}_{candidate}.{ext}", source_dir, base_url, upload_api, dry_run)
             if url:
