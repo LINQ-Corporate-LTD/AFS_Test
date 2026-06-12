@@ -24,7 +24,7 @@
     color: #181818;
     font-size: 36px;
     font-weight: 800;
-    line-height: 30px;
+    /* line-height: 30px; */
     margin: 0;
     text-transform: uppercase;
 }
@@ -123,7 +123,7 @@
     color: #181818;
     font-size: 36px;
     font-weight: 800;
-    line-height: 30px;
+    /* line-height: 30px; */
     margin: 0;
     text-transform: uppercase;
 }
@@ -386,7 +386,7 @@
 @media only screen and (max-width: 639px) {
     .Speakers_addToCakendar__foKTF>div .Speakers_textContainer__UsgLs h2 {
         font-size: 22px;
-        line-height: 25px;
+        /* line-height: 25px; */
     }
 
     .Speakers_addToCakendar__foKTF>div .Speakers_textContainer__UsgLs .Speakers_innerContent__ZoIKd {
@@ -400,7 +400,7 @@
 
     .Speakers_addToCakendar__foKTF>div .Speakers_textContainer__UsgLs h2 {
         font-size: 22px;
-        line-height: 25px;
+        /* line-height: 25px; */
     }
 
     .Speakers_cardsSliderContainer__aDQAp .Speakers_sliderCard__vTffg h3 {
