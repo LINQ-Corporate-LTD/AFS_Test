@@ -472,9 +472,11 @@ def parse_industry_trends(soup) -> list[dict]:
         for sib in h3.next_siblings:
             if not hasattr(sib, "name"):
                 continue
-            if sib.name == "h3":
+            if sib.name in ("h1", "h2", "h3", "h4", "h5"):
                 break
             if sib.name == "p":
+                if _is_section_header(sib):
+                    break
                 sib_text = _get_text(sib)
                 if re.search(r"short\s*description\s*[:\-]", sib_text, re.IGNORECASE):
                     val = _value_from_p(sib)

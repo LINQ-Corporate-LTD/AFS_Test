@@ -132,6 +132,10 @@ def parse_news_articles(html: str) -> list:
         lower = cleaned.lower()
 
         if lower.startswith("publishing date:"):
+            # If an article is already in progress (has a headline), this
+            # Publishing Date belongs to the NEXT article — flush first.
+            if current.get("headline"):
+                _flush()
             date_val = cleaned.split(":", 1)[1].strip()
             # If current is empty (right after a separator) AND the last saved
             # article has no date, the date was placed after its own separator —
