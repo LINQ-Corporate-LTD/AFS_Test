@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Error404 from "./Error404";
 import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
+import { cleanHtml } from "../utils/cleanHtml";
 const linkedInLogo = "/images/WebCommonImages/share-linkedIn.png";
 const whatsappLogo = "/images/WebCommonImages/share-whatsapp.png";
 const emailLogo = "/images/WebCommonImages/share-email.png";
@@ -307,10 +308,7 @@ Read the full article: ${currentUrl}`);
                   <p
                     lang="en"
                     dangerouslySetInnerHTML={{
-                      __html: newsData[0]?.newsShortDescription.replace(
-                        /^"(.*)"$/,
-                        "$1"
-                      ),
+                      __html: cleanHtml(newsData[0]?.newsShortDescription),
                     }}
                   ></p>
                 </div>
@@ -409,10 +407,7 @@ Read the full article: ${currentUrl}`);
                   <p
                     lang="en"
                     dangerouslySetInnerHTML={{
-                      __html: newsData[0]?.newsDescription.replace(
-                        /^"(.*)"$/,
-                        "$1"
-                      ),
+                      __html: cleanHtml(newsData[0]?.newsDescription),
                     }}
                   ></p>
                 </div>

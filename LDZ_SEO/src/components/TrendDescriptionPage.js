@@ -15,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
 import { useApiData } from "../common/ApiContext";
+import { cleanHtml } from "../utils/cleanHtml";
 const leftArrowIcon = "/images/WebCommonImages/icon-arrow-left.png";
 const rightArrowIcon = "/images/WebCommonImages/icon-arrow-right.png";
 
@@ -364,7 +365,7 @@ const TrendDescriptionPage = () => {
                   <h2>{currentTab.trendTitle}</h2>
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: currentTab.trendShortDescription,
+                      __html: cleanHtml(currentTab.trendShortDescription),
                     }}
                   />
                   <p
@@ -391,7 +392,7 @@ const TrendDescriptionPage = () => {
                 <div style={{ display: !isExpanded ? "none" : "" }}>
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: currentTab.trendLongDescription,
+                      __html: cleanHtml(currentTab.trendLongDescription),
                     }}
                   />
                 </div>

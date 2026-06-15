@@ -15,6 +15,7 @@ import TestimonialCarousel from "./TestimonialCarousel";
 import { Helmet } from "react-helmet-async";
 import { useApiData } from "../common/ApiContext";
 import { usePageSeo } from "../common/usePageSeo";
+import { cleanHtml } from "../utils/cleanHtml";
 const leftArrowIcon = "/images/WebCommonImages/icon-arrow-left.png";
 const rightArrowIcon = "/images/WebCommonImages/icon-arrow-right.png";
 const emailIcon = "/images/WebCommonImages/msg.png";
@@ -131,30 +132,6 @@ const ExhibitorPackages = () => {
         behavior: "smooth",
       });
     }
-  };
-
-  const cleanHtml = (html) => {
-    if (!html) return "";
-
-    // Remove outer quotes and unescape HTML
-    let cleaned = html.replace(/^"(.*)"$/, "$1");
-
-    // Unescape quotes
-    cleaned = cleaned.replace(/\\"/g, '"');
-
-    // Ensure all external links have proper attributes
-    cleaned = cleaned.replace(
-      /<a\s+href=["']([^"']+)["'][^>]*>/gi,
-      (match, url) => {
-        // Check if URL is external (starts with http/https)
-        if (url.startsWith("http://") || url.startsWith("https://")) {
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer">`;
-        }
-        return match;
-      },
-    );
-
-    return cleaned;
   };
 
   const callMediaHelperListApi = () => {

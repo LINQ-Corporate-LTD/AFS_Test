@@ -11,6 +11,7 @@ import Error404 from "./Error404";
 import { Helmet } from "react-helmet-async";
 import { useSSRData } from "../common/useSSRData";
 import "../../src/assets/css/form.css";
+import { cleanHtml } from "../utils/cleanHtml";
 const SpeakerProfile = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -344,9 +345,7 @@ const SpeakerProfile = () => {
                       </h3>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: speakerData[0]?.eventSpeakerDescription
-                            ?.replace(/^"(.*)"$/, "$1")
-                            ?.replace(/<p>(\s|&nbsp;)*<\/p>/g, ""),
+                          __html: cleanHtml(speakerData[0]?.eventSpeakerDescription).replace(/<p>(\s|&nbsp;)*<\/p>/g, ""),
                         }}
                       ></div>
                     </div>

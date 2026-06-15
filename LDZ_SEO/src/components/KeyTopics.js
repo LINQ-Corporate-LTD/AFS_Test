@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../assets/css/keytopics.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { cleanHtml } from "../utils/cleanHtml";
 
 const KeyTopics = () => {
   const [keyPointList, setKeyPointList] = useState([]);
@@ -56,7 +57,7 @@ const KeyTopics = () => {
             <div
               lang="en"
               dangerouslySetInnerHTML={{
-                __html: topic.pointDescription.replace(/^"(.*)"$/, "$1"),
+                __html: cleanHtml(topic.pointDescription),
               }}
             ></div>
           </div>

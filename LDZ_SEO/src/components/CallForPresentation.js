@@ -18,6 +18,7 @@ import Popup from "reactjs-popup";
 import "../assets/css/popUp.css";
 import { Helmet } from "react-helmet-async";
 import { usePageSeo } from "../common/usePageSeo";
+import { cleanHtml } from "../utils/cleanHtml";
 const callingSpeakerBg = "/images/WebImages/calling-all-speakers.webp";
 const beAPartOfOurBg = "/images/WebImages/be-a-part-of-our-multi-disciplined-agenda.webp";
 const iconNetwork = "/images/WebCommonImages/icon-network.png";
@@ -415,30 +416,6 @@ const CallForPresentation = () => {
     }
     // eslint-disable-next-line
   }, [speakerPageData]);
-
-  const cleanHtml = (html) => {
-    if (!html) return "";
-
-    // Remove outer quotes and unescape HTML
-    let cleaned = html.replace(/^"(.*)"$/, "$1");
-
-    // Unescape quotes
-    cleaned = cleaned.replace(/\\"/g, '"');
-
-    // Ensure all external links have proper attributes
-    cleaned = cleaned.replace(
-      /<a\s+href=["']([^"']+)["'][^>]*>/gi,
-      (match, url) => {
-        // Check if URL is external (starts with http/https)
-        if (url.startsWith("http://") || url.startsWith("https://")) {
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer">`;
-        }
-        return match;
-      },
-    );
-
-    return cleaned;
-  };
 
   const checkOnChange = () => {
 

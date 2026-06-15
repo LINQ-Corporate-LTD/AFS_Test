@@ -16,6 +16,7 @@ import TestimonialCarousel from "./TestimonialCarousel";
 import { useSSRData } from "../common/useSSRData";
 import { usePageSeo } from "../common/usePageSeo";
 import { useApiData } from "../common/ApiContext";
+import { cleanHtml } from "../utils/cleanHtml";
 const leftArrowIcon = "/images/WebCommonImages/icon-arrow-left.png";
 const rightArrowIcon = "/images/WebCommonImages/icon-arrow-right.png";
 const emailIcon = "/images/WebCommonImages/msg.png";
@@ -214,22 +215,6 @@ const Sponsors = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  const cleanHtml = (html) => {
-    if (!html) return "";
-    let cleaned = html.replace(/^"(.*)"$/, "$1");
-    cleaned = cleaned.replace(/\\"/g, '"');
-    cleaned = cleaned.replace(
-      /<a\s+href=["']([^"']+)["'][^>]*>/gi,
-      (match, url) => {
-        if (url.startsWith("http://") || url.startsWith("https://")) {
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer">`;
-        }
-        return match;
-      },
-    );
-    return cleaned;
-  };
 
   function chunkArray(array, size) {
     return Array.from({ length: Math.ceil(array.length / size) }, (_, i) =>

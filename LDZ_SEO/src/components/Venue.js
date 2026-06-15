@@ -12,6 +12,7 @@ import "yet-another-react-lightbox/styles.css";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import { useSSRData } from "../common/useSSRData";
 import { usePageSeo } from "../common/usePageSeo";
+import { cleanHtml } from "../utils/cleanHtml";
 const bgImage = "/images/WebImages/venue-main-image.webp";
 const locationIcon = "/images/WebCommonImages/location-pin.png";
 const phoneIcon = "/images/WebCommonImages/icon-phone.png";
@@ -109,30 +110,6 @@ const Venue = () => {
       });
     }, 100);
   }, []);
-
-  const cleanHtml = (html) => {
-    if (!html) return "";
-    // Iteratively unescape until string stops changing (handles multi-level escaping)
-    let cleaned = html;
-    let prev = null;
-    while (prev !== cleaned) {
-      prev = cleaned;
-      cleaned = cleaned
-        .replace(/^"(.*)"$/s, "$1")
-        .replace(/\\"/g, '"')
-        .replace(/\\\\/g, "\\");
-    }
-    // Rebuild every <a> tag: directly extract the https?:// URL from it
-    // regardless of how many layers of escaping still surround the href value
-    cleaned = cleaned.replace(/<a\b[^>]*>/gi, (aTag) => {
-      const urlMatch = aTag.match(/https?:\/\/[^\s"'\\>]+/);
-      if (urlMatch) {
-        return `<a href="${urlMatch[0]}" target="_blank" rel="noopener noreferrer">`;
-      }
-      return aTag;
-    });
-    return cleaned;
-  };
 
   const scrollToContact = (e) => {
     e.preventDefault();

@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../../src/assets/css/homeSpeakerSlider.css";
 import { useNavigate } from "react-router-dom";
 import { useSSRData } from "../common/useSSRData";
+import { cleanHtml } from "../utils/cleanHtml";
 const plusIcon = "/images/WebCommonImages/plus-white.png";
 const closeIcon = "/images/WebCommonImages/close-slider.png";
 const arrowRed = "/images/WebCommonImages/arrow-red.png";
@@ -120,7 +121,7 @@ const HomeSpeakerSlider = () => {
                     <div
                       className="dangerous_text_b"
                       dangerouslySetInnerHTML={{
-                        __html: speaker.eventSpeakerShortDescription?.replace(/^"(.*)"$/, "$1"),
+                        __html: cleanHtml(speaker.eventSpeakerShortDescription),
                       }}
                     />
                   </div>

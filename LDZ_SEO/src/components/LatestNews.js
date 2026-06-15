@@ -4,6 +4,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../assets/css/LatestNews.css";
 import { useSSRData } from "../common/useSSRData";
+import { cleanHtml } from "../utils/cleanHtml";
 
 const LatestNews = () => {
   const navigate = useNavigate();
@@ -99,7 +100,7 @@ const LatestNews = () => {
                   <p
                     lang="en"
                     dangerouslySetInnerHTML={{
-                      __html: featuredLatestArticle?.newsShortDescription?.replace(/^"(.*)"$/, "$1"),
+                      __html: cleanHtml(featuredLatestArticle?.newsShortDescription),
                     }}
                   />
                 </Link>

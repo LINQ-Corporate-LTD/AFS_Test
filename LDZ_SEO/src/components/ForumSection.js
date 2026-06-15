@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../assets/css/ForumSection.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { cleanHtml } from "../utils/cleanHtml";
 const speakerVideo = "/images/WebVideo/iq-hub-video.mp4";
 const homePageIqHubVideo = "/images/WebVideo/iq-hub-video.mp4";
 const homePageIqHubVideoPoster = "/images/WebImages/home-video-poster.jpg";
@@ -61,10 +62,7 @@ const ForumSection = () => {
             <div
               lang="en"
               dangerouslySetInnerHTML={{
-                __html: taglineData[0]?.thirdSectionDescription?.replace(
-                  /^"(.*)"$/,
-                  "$1",
-                ),
+                __html: cleanHtml(taglineData[0]?.thirdSectionDescription),
               }}
             ></div>
           </span>

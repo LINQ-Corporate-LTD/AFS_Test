@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { usePageSeo } from "../common/usePageSeo";
 import { useApiData } from "../common/ApiContext";
+import { cleanHtml } from "../utils/cleanHtml";
 const leftArrowIcon = "/images/WebCommonImages/icon-arrow-left.png";
 const rightArrowIcon = "/images/WebCommonImages/icon-arrow-right.png";
 
@@ -286,11 +287,7 @@ const News = () => {
                           <p
                             lang="en"
                             dangerouslySetInnerHTML={{
-                              __html:
-                                featuredArticle?.newsShortDescription.replace(
-                                  /^"(.*)"$/,
-                                  "$1"
-                                ),
+                              __html: cleanHtml(featuredArticle?.newsShortDescription),
                             }}
                           ></p>
                         </div>
@@ -389,7 +386,7 @@ const News = () => {
                           <p
                             lang="en"
                             dangerouslySetInnerHTML={{
-                              __html: featuredLatestArticle?.newsShortDescription.replace(/^"(.*)"$/, "$1"),
+                              __html: cleanHtml(featuredLatestArticle?.newsShortDescription),
                             }}
                           ></p>
                         </Link>
@@ -429,10 +426,7 @@ const News = () => {
                     <p
                       lang="en"
                       dangerouslySetInnerHTML={{
-                        __html: article.newsShortDescription.replace(
-                          /^"(.*)"$/,
-                          "$1"
-                        ),
+                        __html: cleanHtml(article.newsShortDescription),
                       }}
                     ></p>
                   </div>

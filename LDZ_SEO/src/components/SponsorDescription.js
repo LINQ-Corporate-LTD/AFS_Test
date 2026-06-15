@@ -12,6 +12,7 @@ import LogoCarousel from "./LogoCarousel";
 import Error404 from "./Error404";
 import { useSSRData } from "../common/useSSRData";
 import { Helmet } from "react-helmet-async";
+import { cleanHtml } from "../utils/cleanHtml";
 
 const toSlug = (str = "") =>
   str
@@ -428,9 +429,7 @@ const SponsorDescription = () => {
             <div className="SponsorBio_textContainer__YsXyt">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: sponsorData[0]?.sponsorComapnyBioDescription
-                    ?.replace(/^"(.*)"$/, "$1")
-                    ?.replace(/<p>(\s|&nbsp;)*<\/p>/g, ""),
+                  __html: cleanHtml(sponsorData[0]?.sponsorComapnyBioDescription).replace(/<p>(\s|&nbsp;)*<\/p>/g, ""),
                 }}
               ></div>
               <button onClick={() => navigate("/agenda-page")}>view program</button>
