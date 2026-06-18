@@ -1217,7 +1217,7 @@ const CompanyRegistrationForm = () => {
             IQ International PTe.LTD
           </span>
         </p>
-        <p>©2026 Lithium Downstream Summit 2026</p>
+        <p>©2026 Frac Sand USA 2026</p>
       </div>
     </div>
   );
@@ -1583,7 +1583,7 @@ const CompanyRegistrationForm = () => {
                     IQ International PTe.LTD
                   </span>
                 </p>
-                <p>©2026 Lithium Downstream Summit 2026</p>
+                <p>©2026 Frac Sand USA 2026</p>
               </div>
             </div>
           </div>
